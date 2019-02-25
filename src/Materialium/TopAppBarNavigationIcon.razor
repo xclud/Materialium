@@ -1,0 +1,22 @@
+﻿<a href="#" class="@GetClass()">@ChildContent</a>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; } = (b) => b.AddContent(0, "menu");
+
+    [Parameter]
+    string Class { get; set; } = "material-icons";
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-top-app-bar__navigation-icon" };
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

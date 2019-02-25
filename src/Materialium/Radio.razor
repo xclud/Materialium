@@ -1,0 +1,22 @@
+﻿<div class="@Classes()">
+    @ChildContent
+</div>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    bool Disabled { get; set; }
+
+    private string Classes()
+    {
+        if(Disabled)
+        {
+            return "mdc-radio mdc-radio--disabled";
+        }
+
+        return "mdc-radio";
+    }
+}

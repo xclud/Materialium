@@ -1,0 +1,66 @@
+﻿@if (string.IsNullOrWhiteSpace(Href))
+{
+    <li class="@GetClass()" aria-selected="@Selected">
+        @ChildContent
+    </li>
+}
+else
+{
+    <a class="@GetClass()" href="@Href" aria-selected="@Selected" title="@Title">
+        @ChildContent
+    </a>
+}
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
+
+    [Parameter]
+    string Href { get; set; }
+
+    [Parameter]
+    string Title { get; set; }
+
+    [Parameter]
+    bool Activated { get; set; }
+
+    [Parameter]
+    bool Disabled { get; set; }
+
+    [Parameter]
+    bool Selected { get; set; }
+
+    [Parameter]
+    string Style { get; set; }
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-list-item" };
+
+        if (Activated)
+        {
+            classes.Add("mdc-list-item--activated");
+        }
+
+        if (Selected)
+        {
+            classes.Add("mdc-list-item--selected");
+        }
+
+        if(Disabled)
+        {
+            classes.Add("mdc-list-item--disabled");
+        }
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

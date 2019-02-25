@@ -1,0 +1,21 @@
+﻿<div class="@Classes()">
+    @ChildContent
+</div>
+
+@functions {
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    bool Persistent { get; set; }
+
+    private string Classes()
+    {
+        if(Persistent)
+        {
+            return "mdc-text-field-helper-text mdc-text-field-helper-text--persistent";
+        }
+
+        return "mdc-text-field-helper-text";
+    }
+}

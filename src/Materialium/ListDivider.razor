@@ -1,0 +1,21 @@
+﻿<hr class="@GetClass()" style="@Style"/>
+
+@functions {
+    [Parameter]
+    string Class { get; set; }
+
+    [Parameter]
+    string Style { get; set; }
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-list-divider" };
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

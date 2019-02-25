@@ -1,0 +1,25 @@
+﻿<h3 class="@GetClass()" style="@Style">@ChildContent</h3>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
+
+    [Parameter]
+    string Style { get; set; }
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-list-group__subheader" };
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

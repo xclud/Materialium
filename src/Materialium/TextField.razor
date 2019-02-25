@@ -1,0 +1,95 @@
+﻿<div class="@Classes()">
+    @ChildContent
+</div>
+
+@functions {
+
+    private string Classes()
+    {
+        List<string> classes = new List<string> { "mdc-text-field" };
+
+        if (TextArea)
+        {
+            classes.Add("mdc-text-field--textarea");
+        }
+
+        if (Outlined)
+        {
+            classes.Add("mdc-text-field--outlined");
+        }
+
+        if (FullWidth)
+        {
+            classes.Add("mdc-text-field--fullwidth");
+        }
+
+        if (WithLeadingIcon)
+        {
+            classes.Add("mdc-text-field--with-leading-icon");
+        }
+
+        if (WithTrailingcon)
+        {
+            classes.Add("mdc-text-field--with-trailing-icon");
+        }
+
+        if (Dense)
+        {
+            classes.Add("mdc-text-field--dense");
+        }
+        if (Focused)
+        {
+            classes.Add("mdc-text-field--focused");
+        }
+        if (NoLabel)
+        {
+            classes.Add("mdc-text-field--no-label");
+        }
+        if (Disabled)
+        {
+            classes.Add("mdc-text-field--disabled");
+        }
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class);
+        }
+
+        return string.Join(" ", classes);
+    }
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    bool Outlined { get; set; } = true;
+
+    [Parameter]
+    bool FullWidth { get; set; }
+
+    [Parameter]
+    bool WithLeadingIcon { get; set; }
+
+    [Parameter]
+    bool WithTrailingcon { get; set; }
+
+    [Parameter]
+    bool TextArea { get; set; }
+
+
+    [Parameter]
+    bool Disabled { get; set; }
+
+    [Obsolete("The --dense variant of the text field will be removed in an upcoming release. See https://github.com/material-components/material-components-web/issues/4142 for details.")]
+    [Parameter]
+    bool Dense { get; set; }
+
+    [Parameter]
+    bool Focused { get; set; }
+
+    [Parameter]
+    bool NoLabel { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
+}

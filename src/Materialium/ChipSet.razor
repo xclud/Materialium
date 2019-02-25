@@ -1,0 +1,24 @@
+﻿<div class="@GetClasses()">
+    @ChildContent
+</div>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    bool IsInput { get; set; }
+
+    private string GetClasses()
+    {
+        List<string> c = new List<string> { "mdc-chip-set" };
+
+        if (IsInput)
+        {
+            c.Add("mdc-chip-set--input");
+        }
+
+        return string.Join(" ", c);
+    }
+}

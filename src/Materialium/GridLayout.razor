@@ -1,0 +1,27 @@
+﻿<div class="@GetClass()" style="@Style">
+    @ChildContent
+</div>
+
+@functions {
+
+    [Parameter]
+    string Class { get; set; }
+
+    [Parameter]
+    string Style { get; set; }
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-grid-layout" };
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

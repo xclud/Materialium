@@ -1,0 +1,54 @@
+﻿<button class="@GetClass()" style="@Style" role="tab" aria-selected="@Active" onclick="@OnClick">
+    @ChildContent
+</button>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
+
+    [Parameter]
+    string Style { get; set; }
+
+    [Parameter]
+    bool Active { get; set; }
+
+    [Parameter]
+    bool Stacked { get; set; }
+
+    [Parameter]
+    bool MinWidth { get; set; }
+
+    [Parameter]
+    EventCallback<UIMouseEventArgs> OnClick { get; set; }
+
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-tab" };
+
+        if (Active)
+        {
+            classes.Add("mdc-tab--active");
+        }
+        if (Stacked)
+        {
+            classes.Add("mdc-tab--stacked");
+        }
+
+        if (MinWidth)
+        {
+            classes.Add("mdc-tab--min-width");
+        }
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

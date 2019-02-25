@@ -1,0 +1,37 @@
+﻿<div class="@GetClass()" style="@Style">
+    <div class="bhm-content-transition">
+        @ChildContent
+    </div>
+</div>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    bool TextJustify { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
+
+    [Parameter]
+    string Style { get; set; }
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "bhm-content" };
+
+        if (TextJustify)
+        {
+            classes.Add("text-justify");
+        }
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

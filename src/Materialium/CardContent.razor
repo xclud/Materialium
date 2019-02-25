@@ -1,0 +1,25 @@
+﻿<div class="@GetClass()">
+    @ChildContent
+</div>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+
+    [Parameter]
+    string Class { get; set; }
+
+    string GetClass()
+    {
+        List<string> classes = new List<string> { };
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

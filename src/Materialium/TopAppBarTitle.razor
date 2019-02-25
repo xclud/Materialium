@@ -1,0 +1,22 @@
+﻿<span class="@GetClass()">@ChildContent</span>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-top-app-bar__title" };
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

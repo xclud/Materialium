@@ -1,0 +1,35 @@
+﻿<div class="@Classes()" style="@Style">
+    @ChildContent
+</div>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    bool Disabled { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
+
+    [Parameter]
+    string Style { get; set; }
+
+    private string Classes()
+    {
+        List<string> classes = new List<string> { "mdc-checkbox" };
+
+        if (Disabled)
+        {
+            classes.Add("mdc-checkbox--disabled");
+        }
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

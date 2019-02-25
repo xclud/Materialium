@@ -1,0 +1,40 @@
+﻿<section class="@GetClass()" role="@(AlignEnd ? "toolbar": null)">
+    @ChildContent
+</section>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    bool AlignStart { get; set; }
+
+    [Parameter]
+    bool AlignEnd { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-top-app-bar__section" };
+
+        if (AlignStart)
+        {
+            classes.Add("mdc-top-app-bar__section--align-start");
+        }
+
+        if (AlignEnd)
+        {
+            classes.Add("mdc-top-app-bar__section--align-end");
+        }
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

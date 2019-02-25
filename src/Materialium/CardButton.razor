@@ -1,0 +1,114 @@
+﻿@if (string.IsNullOrWhiteSpace(HRef))
+{
+    if (Disabled)
+    {
+        <button class="@GetClass()" style="@Style" title="@Title" onmousedown="@OnMouseDown" onmouseup="@OnMouseUp" onkeyup="@OnKeyUp" onkeydown="@OnKeyDown" onkeypress="@OnKeyPress" onclick="@OnClick" disabled>
+            @ChildContent
+        </button>
+    }
+    else
+    {
+        <button class="@GetClass()" style="@Style" title="@Title" onmousedown="@OnMouseDown" onmouseup="@OnMouseUp" onkeyup="@OnKeyUp" onkeydown="@OnKeyDown" onkeypress="@OnKeyPress" onclick="@OnClick">
+            @ChildContent
+        </button>
+    }
+}
+else
+{
+    if (Disabled)
+    {
+        <a class="@GetClass()" style="@Style" href="@HRef" title="@Title" target="@Target" disabled>
+            @ChildContent
+        </a>
+    }
+    else
+    {
+        <a class="@GetClass()" style="@Style" href="@HRef" title="@Title" target="@Target">
+            @ChildContent
+        </a>
+    }
+}
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    bool Outlined { get; set; }
+
+    [Parameter]
+    bool Unelevated { get; set; }
+
+    [Parameter]
+    bool Raised { get; set; }
+
+    [Parameter]
+    bool Dense { get; set; }
+
+    [Parameter]
+    bool Disabled { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
+
+    [Parameter]
+    string Style { get; set; }
+
+    [Parameter]
+    string Title { get; set; }
+
+    [Parameter]
+    string Target { get; set; }
+
+    [Parameter]
+    EventCallback<UIMouseEventArgs> OnClick { get; set; }
+    [Parameter]
+    EventCallback<UIMouseEventArgs> OnMouseUp { get; set; }
+    [Parameter]
+    EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
+    [Parameter]
+    EventCallback<UIKeyboardEventArgs> OnKeyPress { get; set; }
+    [Parameter]
+    EventCallback<UIKeyboardEventArgs> OnKeyDown { get; set; }
+    [Parameter]
+    EventCallback<UIKeyboardEventArgs> OnKeyUp { get; set; }
+
+    [Parameter]
+    string HRef { get; set; }
+
+    string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-button" };
+
+        if (Outlined)
+        {
+            classes.Add("mdc-button--outlined");
+        }
+
+        if (Raised)
+        {
+            classes.Add("mdc-button--raised");
+        }
+
+        if (Unelevated)
+        {
+            classes.Add("mdc-button--unelevated");
+        }
+
+        if (Dense)
+        {
+            classes.Add("mdc-button--dense");
+        }
+
+        classes.Add("mdc-card__action");
+        classes.Add("mdc-card__action--button");
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}

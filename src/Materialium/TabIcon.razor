@@ -1,0 +1,26 @@
+﻿<span class="@GetClass()" style="@Style" aria-hidden="true">@ChildContent</span>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    string Class { get; set; } = "material-icons";
+
+    [Parameter]
+    string Style { get; set; }
+
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-tab__icon" };
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}
