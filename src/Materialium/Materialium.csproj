@@ -8,7 +8,7 @@
     <FileVersion>0.0.0.27</FileVersion>
     <Authors>Mahdi K. Fard</Authors>
     <Company>Mahdi K. Fard</Company>
-    <Description>Material Design Components for Web (MDC-Web) library for ASP.NET Core 3.0 Razor Components.</Description>
+    <Description>Material Design Components for Web (MDC-Web) ASP.NET Core 3.0 Razor Components.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReleaseNotes>- Adds DrawerScrim.</PackageReleaseNotes>
     <PackageTags>MDC MDC-Web Material Material-Design .NET-Core Razor Component</PackageTags>
