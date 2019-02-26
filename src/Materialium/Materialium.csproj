@@ -3,14 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>8.0</LangVersion>
-    <Version>0.0.0.28</Version>
-    <AssemblyVersion>0.0.0.28</AssemblyVersion>
-    <FileVersion>0.0.0.28</FileVersion>
+    <Version>0.0.0.29</Version>
+    <AssemblyVersion>0.0.0.29</AssemblyVersion>
+    <FileVersion>0.0.0.29</FileVersion>
     <Authors>Mahdi K. Fard</Authors>
     <Company>Mahdi K. Fard</Company>
     <Description>Material Design Components for Web (MDC-Web) ASP.NET Core 3.0 Razor Components.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageReleaseNotes>- Adds DrawerScrim.</PackageReleaseNotes>
+    <PackageReleaseNotes>- Adds ImageList and friends.</PackageReleaseNotes>
     <PackageTags>MDC MDC-Web Material Material-Design .NET-Core Razor Component</PackageTags>
     <PackageProjectUrl>https://github.com/xclud/Materialium</PackageProjectUrl>
   </PropertyGroup>
