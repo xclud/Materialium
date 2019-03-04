@@ -1,4 +1,7 @@
-﻿<aside class="@GetClass()">
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime jsRuntime
+
+<aside ref="drawerElem" class="@GetClass()">
     @ChildContent
 </aside>
 
@@ -12,15 +15,6 @@
 
     [Parameter]
     bool Dismissible { get; set; }
-
-    [Parameter]
-    bool Open { get; set; }
-
-    [Parameter]
-    bool Opening { get; set; }
-
-    [Parameter]
-    bool Closing { get; set; }
 
     [Parameter]
     string Class { get; set; }
@@ -39,21 +33,6 @@
             classes.Add("mdc-drawer--dismissible");
         }
 
-        if (Open)
-        {
-            classes.Add("mdc-drawer--open");
-        }
-
-        if (Opening)
-        {
-            classes.Add("mdc-drawer--opening");
-        }
-
-        if (Closing)
-        {
-            classes.Add("mdc-drawer--closing");
-        }
-
 
         if (!string.IsNullOrWhiteSpace(Class))
         {
@@ -61,5 +40,14 @@
         }
 
         return string.Join(" ", classes);
+    }
+
+    [Parameter] bool IsOpen { get; set; }
+
+    ElementRef drawerElem;
+
+    protected override async Task OnAfterRenderAsync()
+    {
+        await jsRuntime.InvokeAsync<object>("Materialium.drawer.init", drawerElem, IsOpen);
     }
 }
