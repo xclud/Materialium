@@ -1,4 +1,7 @@
-﻿<div class="mdc-notched-outline">
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime jsRuntime
+
+<div ref="elem" class="mdc-notched-outline">
     @ChildContent
 </div>
 
@@ -6,4 +9,11 @@
 
     [Parameter]
     RenderFragment ChildContent { get; set; }
+
+    ElementRef elem;
+
+    protected override async Task OnAfterRenderAsync()
+    {
+        await jsRuntime.InvokeAsync<object>("Materialium.notchedOutline.init", elem);
+    }
 }
