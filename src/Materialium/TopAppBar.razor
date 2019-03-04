@@ -1,4 +1,7 @@
-﻿<header class="@GetClass()">
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime jsRuntime
+
+<header ref="headerElem" class="@GetClass()">
     @ChildContent
 </header>
 
@@ -21,6 +24,9 @@
 
     [Parameter]
     bool Dense { get; set; }
+
+    [Parameter]
+    string ScrollTarget { get; set; }
 
     [Parameter]
     string Class { get; set; }
@@ -62,5 +68,18 @@
         }
 
         return string.Join(" ", classes);
+    }
+
+    ElementRef headerElem;
+    bool isFirstRender = true;
+
+    protected override async Task OnAfterRenderAsync()
+    {
+        if (isFirstRender)
+        {
+            isFirstRender = false;
+            await jsRuntime.InvokeAsync<object>(
+                "Materialium.topAppBar.init", headerElem, ScrollTarget);
+        }
     }
 }
