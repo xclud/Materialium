@@ -1,9 +1,12 @@
-﻿<button class="@GetClass()">@ChildContent</button>
+﻿<button class="@GetClass()" onclick="@OnClick">@ChildContent</button>
 
 @functions {
 
     [Parameter]
     RenderFragment ChildContent { get; set; } = (b) => b.AddContent(0, "menu");
+
+    [Parameter]
+    EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
     [Parameter]
     string Class { get; set; } = "material-icons";
