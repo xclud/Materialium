@@ -1,7 +1,7 @@
 ﻿@using Microsoft.JSInterop
 @inject IJSRuntime jsRuntime
 
-<div ref="elem" class="mdc-notched-outline">
+<div ref="elem" class="@GetClass()" style="@Style">
     @ChildContent
 </div>
 
@@ -10,10 +10,34 @@
     [Parameter]
     RenderFragment ChildContent { get; set; }
 
+    [Parameter]
+    string Class { get; set; }
+
+    [Parameter]
+    string Style { get; set; }
+
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-notched-outline" };
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+
     ElementRef elem;
+    bool isFirstRender = true;
 
     protected override async Task OnAfterRenderAsync()
     {
-        await jsRuntime.InvokeAsync<object>("Materialium.notchedOutline.init", elem);
+        if (isFirstRender)
+        {
+            isFirstRender = false;
+            await jsRuntime.InvokeAsync<object>("Materialium.notchedOutline.init", elem);
+        }
     }
 }
