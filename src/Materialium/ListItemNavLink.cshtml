@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Components.Routing
+
+<NavLink href=@Href class="@GetClass()" Match=@Match ActiveClass="mdc-list-item--activated">
+    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">@Icon</i>
+    <span class="mdc-list-item__text">@Text</span>
+</NavLink>
+
+@functions {
+    [Parameter] NavLinkMatch Match { get; set; } = NavLinkMatch.Prefix;
+    [Parameter] string Icon { get; set; }
+    [Parameter] string Text { get; set; }
+    [Parameter] string Href { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
+
+    private string GetClass()
+    {
+        List<string> classes = new List<string> { "mdc-list-item" };
+
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
+    }
+}
