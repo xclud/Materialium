@@ -1,4 +1,7 @@
-﻿<div class="@GetClass()" style="@Style">
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime jsRuntime
+
+<div ref="elem" class="@GetClass()" style="@Style">
     @ChildContent
 </div>
 
@@ -24,5 +27,17 @@
         }
 
         return string.Join(" ", classes);
+    }
+
+    ElementRef elem;
+    bool isFirstRender = true;
+
+    protected override async Task OnAfterRenderAsync()
+    {
+        if (isFirstRender)
+        {
+            isFirstRender = false;
+            await jsRuntime.InvokeAsync<object>("Materialium.tabBar.init", elem);
+        }
     }
 }

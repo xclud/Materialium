@@ -1,62 +1,68 @@
-﻿<div class="@Classes()">
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime jsRuntime
+
+<div ref="elem" class="@Classes()">
     @ChildContent
 </div>
 
 @functions {
 
-    private string Classes()
-    {
-        List<string> classes = new List<string> { "mdc-text-field" };
+        private string Classes()
+        {
+            List<string> classes = new List<string> { "mdc-text-field" };
 
-        if (TextArea)
-        {
-            classes.Add("mdc-text-field--textarea");
-        }
+            if (TextArea)
+            {
+                classes.Add("mdc-text-field--textarea");
+            }
 
-        if (Outlined)
-        {
-            classes.Add("mdc-text-field--outlined");
-        }
+            if (Outlined)
+            {
+                classes.Add("mdc-text-field--outlined");
+            }
 
-        if (FullWidth)
-        {
-            classes.Add("mdc-text-field--fullwidth");
-        }
+            if (FullWidth)
+            {
+                classes.Add("mdc-text-field--fullwidth");
+            }
 
-        if (WithLeadingIcon)
-        {
-            classes.Add("mdc-text-field--with-leading-icon");
-        }
+            if (WithLeadingIcon)
+            {
+                classes.Add("mdc-text-field--with-leading-icon");
+            }
 
-        if (WithTrailingcon)
-        {
-            classes.Add("mdc-text-field--with-trailing-icon");
-        }
+            if (WithTrailingcon)
+            {
+                classes.Add("mdc-text-field--with-trailing-icon");
+            }
 
-        if (Dense)
-        {
-            classes.Add("mdc-text-field--dense");
-        }
-        if (Focused)
-        {
-            classes.Add("mdc-text-field--focused");
-        }
-        if (NoLabel)
-        {
-            classes.Add("mdc-text-field--no-label");
-        }
-        if (Disabled)
-        {
-            classes.Add("mdc-text-field--disabled");
-        }
+#pragma warning disable CS0618
+            if (Dense)
+            {
+                classes.Add("mdc-text-field--dense");
+            }
+#pragma warning enable CS0618
 
-        if (!string.IsNullOrWhiteSpace(Class))
-        {
-            classes.Add(Class);
-        }
+            if (Focused)
+            {
+                classes.Add("mdc-text-field--focused");
+            }
+            if (NoLabel)
+            {
+                classes.Add("mdc-text-field--no-label");
+            }
+            if (Disabled)
+            {
+                classes.Add("mdc-text-field--disabled");
+            }
 
-        return string.Join(" ", classes);
-    }
+            if (!string.IsNullOrWhiteSpace(Class))
+            {
+                classes.Add(Class);
+            }
+
+            return string.Join(" ", classes);
+        }
 
     [Parameter]
     RenderFragment ChildContent { get; set; }
@@ -92,4 +98,16 @@
 
     [Parameter]
     string Class { get; set; }
+
+    ElementRef elem;
+    bool isFirstRender = true;
+
+    protected override async Task OnAfterRenderAsync()
+    {
+        if (isFirstRender)
+        {
+            isFirstRender = false;
+            await jsRuntime.InvokeAsync<object>("Materialium.textField.init", elem);
+        }
+    }
 }
