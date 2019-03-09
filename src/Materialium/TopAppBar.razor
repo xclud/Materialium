@@ -1,7 +1,7 @@
 ﻿@using Microsoft.JSInterop
 @inject IJSRuntime jsRuntime
 
-<header ref="headerElem" class="@GetClass()">
+<header ref="elem" class="@GetClass()">
     @ChildContent
 </header>
 
@@ -70,7 +70,7 @@
         return string.Join(" ", classes);
     }
 
-    ElementRef headerElem;
+    ElementRef elem;
     bool isFirstRender = true;
 
     protected override async Task OnAfterRenderAsync()
@@ -78,8 +78,7 @@
         if (isFirstRender)
         {
             isFirstRender = false;
-            await jsRuntime.InvokeAsync<object>(
-                "Materialium.topAppBar.init", headerElem, ScrollTarget);
+            await jsRuntime.InvokeAsync<object>("Materialium.topAppBar.init", elem, ScrollTarget);
         }
     }
 }

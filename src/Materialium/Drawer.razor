@@ -1,7 +1,7 @@
 ﻿@using Microsoft.JSInterop
 @inject IJSRuntime jsRuntime
 
-<aside ref="drawerElem" class="@GetClass()">
+<aside ref="elem" class="@GetClass()">
     @ChildContent
 </aside>
 
@@ -42,12 +42,15 @@
         return string.Join(" ", classes);
     }
 
-    [Parameter] bool IsOpen { get; set; }
-
-    ElementRef drawerElem;
+    ElementRef elem;
+    bool isFirstRender = true;
 
     protected override async Task OnAfterRenderAsync()
     {
-        await jsRuntime.InvokeAsync<object>("Materialium.drawer.init", drawerElem, IsOpen);
+        if (isFirstRender)
+        {
+            isFirstRender = false;
+            await jsRuntime.InvokeAsync<object>("Materialium.drawer.init", elem);
+        }
     }
 }
