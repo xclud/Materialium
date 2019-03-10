@@ -11,7 +11,7 @@
     <Description>Material Design Components for Web (MDC-Web) ASP.NET Core 3.0 Razor Components.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReleaseNotes>Adds Dialog component and its friends.</PackageReleaseNotes>
-    <PackageTags>MDC MDC-Web Material Material-Design .NET-Core Razor Component</PackageTags>
+    <PackageTags>MDC MDC-Web Material Material-Design .NET-Core Razor-Component Razor Component Blazor Web-Assembly WASM</PackageTags>
     <PackageProjectUrl>https://github.com/xclud/Materialium</PackageProjectUrl>
   </PropertyGroup>
 
