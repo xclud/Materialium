@@ -8,17 +8,26 @@
     RenderFragment ChildContent { get; set; }
 
     [Parameter]
-    bool IsInput { get; set; }
+    bool Input { get; set; }
+
+
+    [Parameter]
+    string Class { get; set; }
 
     private string GetClasses()
     {
-        List<string> c = new List<string> { "mdc-chip-set" };
+        List<string> classes = new List<string> { "mdc-chip-set" };
 
-        if (IsInput)
+        if (Input)
         {
-            c.Add("mdc-chip-set--input");
+            classes.Add("mdc-chip-set--input");
         }
 
-        return string.Join(" ", c);
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
     }
 }
