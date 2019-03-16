@@ -15,20 +15,7 @@ namespace Materialium
             int n = 0;
 
             builder.OpenElement(n++, "div");
-            builder.AddAttribute(n++, "class", InternalClasses);
-
-            if (HasStyle)
-            {
-                builder.AddAttribute(n++, "style", Style);
-            }
-
-            if (Draggable != null)
-            {
-                builder.AddAttribute(n++, "draggable", Draggable.Value.ToString().ToLower());
-                builder.AddAttribute(n++, "ondragstart", "event.preventDefault();");
-                builder.AddAttribute(n++, "ondragend", OnDragEnd);
-            }
-            builder.AddContent(n++, ChildContent);
+            AddCommonAttributes(builder, ref n);
             builder.CloseElement();
         }
 

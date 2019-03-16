@@ -5,19 +5,20 @@ namespace Materialium
 {
     public abstract class MaterialComponentBase : ComponentBase
     {
-        [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        [Parameter] RenderFragment ChildContent { get; set; }
 
-        [Parameter]
-        protected string Class { get; set; }
+        [Parameter] string Class { get; set; }
 
-        [Parameter]
-        protected string Style { get; set; }
+        [Parameter] string Style { get; set; }
 
-        [Parameter]
-        protected bool? Draggable { get; set; }
+        [Parameter] bool? Draggable { get; set; }
 
-        [Parameter] protected EventCallback<UIDragEventArgs> OnDragEnd { get; set; }
+        [Parameter] bool? Droppable { get; set; }
+
+        [Parameter] EventCallback<UIDragEventArgs> OnDragStart { get; set; }
+        [Parameter] EventCallback<UIDragEventArgs> OnDragEnd { get; set; }
+
+        [Parameter] string OnDragOver { get; set; } = "event.preventDefault();";
 
         protected abstract IEnumerable<string> GetClasses();
 
@@ -42,6 +43,30 @@ namespace Materialium
             {
                 return !string.IsNullOrWhiteSpace(Style);
             }
+        }
+
+        internal void AddCommonAttributes(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, ref int n)
+        {
+            builder.AddAttribute(n++, "class", InternalClasses);
+
+            if (HasStyle)
+            {
+                builder.AddAttribute(n++, "style", Style);
+            }
+
+            if (Draggable != null)
+            {
+                builder.AddAttribute(n++, "draggable", Draggable.Value.ToString().ToLower());
+                builder.AddAttribute(n++, "ondragstart", OnDragStart);
+                builder.AddAttribute(n++, "ondragend", OnDragEnd);
+            }
+
+            if (Droppable != null)
+            {
+                builder.AddAttribute(n++, "ondragover", OnDragOver);
+            }
+
+            builder.AddContent(n++, ChildContent);
         }
     }
 }

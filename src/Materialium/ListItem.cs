@@ -13,19 +13,7 @@ namespace Materialium
             int n = 0;
 
             builder.OpenElement(n++, string.IsNullOrWhiteSpace(Href) ? "li" : "a");
-            builder.AddAttribute(n++, "class", InternalClasses);
-
-            if (HasStyle)
-            {
-                builder.AddAttribute(n++, "style", Style);
-            }
-
-            if (Draggable != null)
-            {
-                builder.AddAttribute(n++, "draggable", Draggable.Value.ToString().ToLower());
-                builder.AddAttribute(n++, "ondragstart", "event.preventDefault();");
-                builder.AddAttribute(n++, "ondragend", OnDragEnd);
-            }
+            AddCommonAttributes(builder, ref n);
 
             if (!string.IsNullOrWhiteSpace(Href))
             {
@@ -33,7 +21,6 @@ namespace Materialium
                 builder.AddAttribute(n++, "title", Title);
             }
 
-            builder.AddContent(n++, ChildContent);
             builder.CloseElement();
 
         }
