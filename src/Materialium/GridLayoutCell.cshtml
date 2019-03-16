@@ -6,24 +6,29 @@
 
     private string GetClasses()
     {
-        var c = new List<string> { "mdc-layout-grid__cell" };
+        var classes = new List<string> { "mdc-layout-grid__cell" };
 
         if (Desktop != null && Desktop > 0)
         {
-            c.Add($"mdc-layout-grid__cell--span-{Desktop}-desktop");
+            classes.Add($"mdc-layout-grid__cell--span-{Desktop}-desktop");
         }
 
         if (Tablet != null && Tablet > 0)
         {
-            c.Add($"mdc-layout-grid__cell--span-{Tablet}-tablet");
+            classes.Add($"mdc-layout-grid__cell--span-{Tablet}-tablet");
         }
 
         if (Phone != null && Phone > 0)
         {
-            c.Add($"mdc-layout-grid__cell--span-{Phone}-phone");
+            classes.Add($"mdc-layout-grid__cell--span-{Phone}-phone");
         }
 
-        return string.Join(" ", c);
+        if (!string.IsNullOrWhiteSpace(Class))
+        {
+            classes.Add(Class.Trim());
+        }
+
+        return string.Join(" ", classes);
     }
 
     [Parameter]
@@ -38,4 +43,7 @@
 
     [Parameter]
     int? Phone { get; set; }
+
+    [Parameter]
+    string Class { get; set; }
 }

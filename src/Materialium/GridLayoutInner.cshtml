@@ -1,4 +1,6 @@
-﻿<span class="@GetClass()" style="@Style">@ChildContent</span>
+﻿<div class="@GetClasses()">
+    @ChildContent
+</div>
 
 @functions {
 
@@ -8,12 +10,9 @@
     [Parameter]
     string Class { get; set; }
 
-    [Parameter]
-    string Style { get; set; }
-
-    private string GetClass()
+    private string GetClasses()
     {
-        List<string> classes = new List<string> { "mdc-list-item__text" };
+        var classes = new List<string> { "mdc-layout-grid__inner" };
 
         if (!string.IsNullOrWhiteSpace(Class))
         {

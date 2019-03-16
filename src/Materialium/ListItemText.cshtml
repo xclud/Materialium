@@ -1,0 +1,11 @@
+﻿@inherits MaterialComponentBase
+
+<span class="@InternalClasses" style="@Style">@ChildContent</span>
+
+@functions {
+
+    protected override IEnumerable<string> GetClasses()
+    {
+        yield return "mdc-list-item__text";
+    }
+}
