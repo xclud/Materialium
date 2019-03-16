@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
+    [Accepts(typeof(ListItemGraphic), typeof(ListItemText))]
     public class ListItem : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
