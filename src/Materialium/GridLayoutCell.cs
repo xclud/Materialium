@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
+
+namespace Materialium
+{
+    [Accepts(typeof(Card), typeof(List), typeof(ImageList), typeof(TabBar))]
+    public sealed class GridLayoutCell : MaterialComponentBase
+    {
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
+        {
+            int n = 0;
+            base.BuildRenderTree(builder);
+            builder.OpenElement(0, "div");
+            AddCommonAttributes(builder, ref n);
+            builder.CloseElement();
+        }
+
+        protected override IEnumerable<string> GetClasses()
+        {
+            yield return "mdc-layout-grid__cell";
+
+            if (Desktop != null && Desktop > 0)
+            {
+                yield return $"mdc-layout-grid__cell--span-{Desktop}-desktop";
+            }
+
+            if (Tablet != null && Tablet > 0)
+            {
+                yield return $"mdc-layout-grid__cell--span-{Tablet}-tablet";
+            }
+
+            if (Phone != null && Phone > 0)
+            {
+                yield return $"mdc-layout-grid__cell--span-{Phone}-phone";
+            }
+        }
+
+        [Parameter]
+        int? Desktop { get; set; }
+
+        [Parameter]
+        int? Tablet { get; set; }
+
+        [Parameter]
+        int? Phone { get; set; }
+    }
+}
