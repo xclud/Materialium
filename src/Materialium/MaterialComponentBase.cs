@@ -5,6 +5,8 @@ namespace Materialium
 {
     public abstract class MaterialComponentBase : ComponentBase
     {
+        internal ElementRef element;
+
         [Parameter] internal RenderFragment ChildContent { get; set; }
 
         [Parameter] string Class { get; set; }
@@ -13,13 +15,13 @@ namespace Materialium
 
         [Parameter] bool? Draggable { get; set; }
 
-        [Parameter] bool? Droppable { get; set; }
-
+        [Parameter] EventCallback<UIDragEventArgs> OnDrop { get; set; }
+        [Parameter] EventCallback<UIDragEventArgs> OnDragEnter { get; set; }
+        [Parameter] EventCallback<UIDragEventArgs> OnDragLeave { get; set; }
+        [Parameter] EventCallback<UIDragEventArgs> OnDragOver { get; set; }
         [Parameter] EventCallback<UIDragEventArgs> OnDragStart { get; set; }
         [Parameter] EventCallback<UIDragEventArgs> OnDragEnd { get; set; }
         [Parameter] EventCallback<UIMouseEventArgs> OnClick { get; set; }
-
-        [Parameter] string OnDragOver { get; set; } = "event.preventDefault();";
 
         protected abstract IEnumerable<string> GetClasses();
 
@@ -61,19 +63,34 @@ namespace Materialium
             if (Draggable != null)
             {
                 builder.AddAttribute(n++, "draggable", Draggable.Value.ToString().ToLower());
+            }
+
+            if (OnDragStart.HasDelegate)
+            {
                 builder.AddAttribute(n++, "ondragstart", OnDragStart);
+            }
+
+            if (OnDragEnd.HasDelegate)
+            {
                 builder.AddAttribute(n++, "ondragend", OnDragEnd);
             }
 
-            if (Droppable != null)
-            {
-                builder.AddAttribute(n++, "ondragover", OnDragOver);
-            }
+            if (OnDragEnter.HasDelegate) builder.AddAttribute(n++, "ondragenter", OnDragEnter);
+            if (OnDragLeave.HasDelegate) builder.AddAttribute(n++, "ondragleave", OnDragLeave);
+            if (OnDragOver.HasDelegate) builder.AddAttribute(n++, "ondragover", OnDragOver);
+            if (OnDrop.HasDelegate) builder.AddAttribute(n++, "ondrop", OnDrop);
+
 
             if (OnClick.HasDelegate)
             {
                 builder.AddAttribute(n++, "onclick", OnClick);
             }
+
+
+            builder.AddElementReferenceCapture(n++, (__value) =>
+            {
+                this.element = __value;
+            });
 
             return n;
         }

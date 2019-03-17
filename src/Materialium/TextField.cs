@@ -9,8 +9,6 @@ namespace Materialium
     public class TextField : MaterialComponentBase
     {
         [Inject] private IJSRuntime JsRuntime { get; set; }
-
-        ElementRef element;
         bool isFirstRender = true;
 
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
@@ -19,10 +17,6 @@ namespace Materialium
             var n = OpenElementWithCommonAttributes(builder, "div");
 
 
-            builder.AddElementReferenceCapture(n++, (__value) =>
-            {
-                this.element = __value;
-            });
             builder.AddContent(n++, ChildContent);
             builder.CloseElement();
         }
