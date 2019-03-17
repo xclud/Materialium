@@ -46,8 +46,10 @@ namespace Materialium
             }
         }
 
-        internal void AddCommonAttributes(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, ref int n)
+        internal int OpenElementWithCommonAttributes(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, string element)
         {
+            int n = 0;
+            builder.OpenElement(n++, element);
             builder.AddAttribute(n++, "class", InternalClasses);
 
             if (HasStyle)
@@ -73,6 +75,8 @@ namespace Materialium
             }
 
             builder.AddContent(n++, ChildContent);
+
+            return n;
         }
     }
 }

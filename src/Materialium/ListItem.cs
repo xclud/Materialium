@@ -10,15 +10,17 @@ namespace Materialium
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);
-            int n = 0;
 
-            builder.OpenElement(n++, string.IsNullOrWhiteSpace(Href) ? "li" : "a");
-            AddCommonAttributes(builder, ref n);
+            var n = OpenElementWithCommonAttributes(builder, string.IsNullOrWhiteSpace(Href) ? "li" : "a");
 
             if (!string.IsNullOrWhiteSpace(Href))
             {
                 builder.AddAttribute(n++, "href", Href);
-                builder.AddAttribute(n++, "title", Title);
+
+                if (!string.IsNullOrWhiteSpace(Title))
+                {
+                    builder.AddAttribute(n++, "title", Title);
+                }
             }
 
             builder.CloseElement();
