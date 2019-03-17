@@ -10,6 +10,7 @@ namespace Materialium
         {
             base.BuildRenderTree(builder);
             var n = OpenElementWithCommonAttributes(builder, "span");
+            builder.AddContent(n++, ChildContent);
             builder.CloseElement();
         }
 

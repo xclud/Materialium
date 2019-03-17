@@ -5,7 +5,7 @@ namespace Materialium
 {
     public abstract class MaterialComponentBase : ComponentBase
     {
-        [Parameter] RenderFragment ChildContent { get; set; }
+        [Parameter] internal RenderFragment ChildContent { get; set; }
 
         [Parameter] string Class { get; set; }
 
@@ -46,10 +46,11 @@ namespace Materialium
             }
         }
 
-        internal int OpenElementWithCommonAttributes(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, string element)
+        internal int OpenElementWithCommonAttributes(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, string elementName)
         {
             int n = 0;
-            builder.OpenElement(n++, element);
+            builder.OpenElement(n++, elementName);
+
             builder.AddAttribute(n++, "class", InternalClasses);
 
             if (HasStyle)
@@ -73,8 +74,6 @@ namespace Materialium
             {
                 builder.AddAttribute(n++, "onclick", OnClick);
             }
-
-            builder.AddContent(n++, ChildContent);
 
             return n;
         }

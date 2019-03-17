@@ -23,6 +23,7 @@ namespace Materialium
                 }
             }
 
+            builder.AddContent(n++, ChildContent);
             builder.CloseElement();
 
         }

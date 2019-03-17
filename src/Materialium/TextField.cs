@@ -9,6 +9,7 @@ namespace Materialium
     public class TextField : MaterialComponentBase
     {
         [Inject] private IJSRuntime JsRuntime { get; set; }
+
         ElementRef element;
         bool isFirstRender = true;
 
@@ -16,11 +17,13 @@ namespace Materialium
         {
             base.BuildRenderTree(builder);
             var n = OpenElementWithCommonAttributes(builder, "div");
+
+
             builder.AddElementReferenceCapture(n++, (__value) =>
             {
-                element = __value;
+                this.element = __value;
             });
-
+            builder.AddContent(n++, ChildContent);
             builder.CloseElement();
         }
 
