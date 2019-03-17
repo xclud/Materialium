@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
     [Accepts(typeof(Card), typeof(List), typeof(ImageList), typeof(TabBar))]
-    public sealed class GridLayoutCell : MaterialComponentBase
+    public class GridLayoutCell : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
         {
