@@ -17,6 +17,7 @@ namespace Materialium
 
         [Parameter] EventCallback<UIDragEventArgs> OnDragStart { get; set; }
         [Parameter] EventCallback<UIDragEventArgs> OnDragEnd { get; set; }
+        [Parameter] EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
         [Parameter] string OnDragOver { get; set; } = "event.preventDefault();";
 
@@ -64,6 +65,11 @@ namespace Materialium
             if (Droppable != null)
             {
                 builder.AddAttribute(n++, "ondragover", OnDragOver);
+            }
+
+            if (OnClick.HasDelegate)
+            {
+                builder.AddAttribute(n++, "onclick", OnClick);
             }
 
             builder.AddContent(n++, ChildContent);
