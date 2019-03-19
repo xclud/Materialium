@@ -86,13 +86,15 @@ namespace Materialium
                 builder.AddAttribute(n++, "onclick", OnClick);
             }
 
+            return n;
+        }
 
+        internal void CaptureElementReference(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, ref int n)
+        {
             builder.AddElementReferenceCapture(n++, (__value) =>
             {
                 this.element = __value;
             });
-
-            return n;
         }
     }
 }

@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
-    [Accepts(typeof(ListItemGraphic), typeof(ListItemText))]
-    public class ListItem : MaterialComponentBase
+    public class IconButton : MaterialComponentBase
     {
+        public const string Class = "mdc-icon-button";
+        public const string Icon = "mdc-icon-button__icon";
+
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);
-
-            var n = OpenElementWithCommonAttributes(builder, string.IsNullOrWhiteSpace(Href) ? "li" : "a");
+            var n = OpenElementWithCommonAttributes(builder, string.IsNullOrWhiteSpace(Href) ? "button" : "a");
 
             if (!string.IsNullOrWhiteSpace(Href))
             {
@@ -22,21 +25,22 @@ namespace Materialium
                     builder.AddAttribute(n++, "title", Title);
                 }
 
+
                 if (!string.IsNullOrWhiteSpace(Target))
                 {
                     builder.AddAttribute(n++, "target", Target);
                 }
             }
 
-            CaptureElementReference(builder, ref n);
-
             builder.AddContent(n++, ChildContent);
             builder.CloseElement();
-
         }
 
         [Parameter]
-        string Href { get; set; }
+        bool On { get; set; }
+
+        [Parameter] string Href { get; set; }
+
 
         [Parameter]
         string Title { get; set; }
@@ -44,32 +48,14 @@ namespace Materialium
         [Parameter]
         string Target { get; set; }
 
-        [Parameter]
-        bool Activated { get; set; }
-
-        [Parameter]
-        bool Disabled { get; set; }
-
-        [Parameter]
-        bool Selected { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {
-            yield return "mdc-list-item";
+            yield return "mdc-icon-button";
 
-            if (Activated)
+            if (On)
             {
-                yield return "mdc-list-item--activated";
-            }
-
-            if (Selected)
-            {
-                yield return "mdc-list-item--selected";
-            }
-
-            if (Disabled)
-            {
-                yield return "mdc-list-item--disabled";
+                yield return "mdc-icon-button--on";
             }
         }
     }
