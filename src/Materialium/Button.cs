@@ -65,23 +65,31 @@ namespace Materialium
 
             if (Outlined)
             {
-                yield return "mdc-button--outlined";
+                yield return Classes.Outlined;
             }
 
             if (Raised)
             {
-                yield return "mdc-button--raised";
+                yield return Classes.Raised;
             }
 
             if (Unelevated)
             {
-                yield return "mdc-button--unelevated";
+                yield return Classes.Unelevated;
             }
 
             if (Dense)
             {
-                yield return "mdc-button--dense";
+                yield return Classes.Dense;
             }
+        }
+
+        public static class Classes
+        {
+            public const string Outlined = "mdc-button--outlined";
+            public const string Raised = "mdc-button--raised";
+            public const string Unelevated = "mdc-button--unelevated";
+            public const string Dense = "mdc-button--dense";
         }
     }
 }

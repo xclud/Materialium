@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>8.0</LangVersion>
-    <Version>1.0.0-preview4-19166-04</Version>
+    <Version>1.0.0-preview4-19166-06</Version>
     <AssemblyVersion>0.0.0.32</AssemblyVersion>
     <FileVersion>0.0.0.32</FileVersion>
     <Authors>Mahdi K. Fard</Authors>

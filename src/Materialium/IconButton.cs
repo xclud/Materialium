@@ -25,7 +25,6 @@ namespace Materialium
                     builder.AddAttribute(n++, "title", Title);
                 }
 
-
                 if (!string.IsNullOrWhiteSpace(Target))
                 {
                     builder.AddAttribute(n++, "target", Target);

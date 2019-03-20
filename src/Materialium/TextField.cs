@@ -98,5 +98,10 @@ namespace Materialium
                 await JsRuntime.InvokeAsync<object>("Materialium.textField.init", element);
             }
         }
+
+        public static class Classes
+        {
+            public const string Input = "mdc-text-field__input";
+        }
     }
 }
