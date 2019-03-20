@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
-    [Accepts(typeof(GridLayoutCell))]
-    public class GridLayoutInner : MaterialComponentBase
+    [Accepts(typeof(LayoutGridInner))]
+    public class LayoutGrid : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
         {
@@ -19,7 +17,12 @@ namespace Materialium
 
         protected override IEnumerable<string> GetClasses()
         {
-            yield return "mdc-layout-grid__inner";
+            yield return Classes.Main;
+        }
+
+        public static class Classes
+        {
+            public const string Main = "mdc-grid-layout";
         }
     }
 }
