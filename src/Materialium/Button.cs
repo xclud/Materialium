@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
+    [Accepts(typeof(ButtonIcon), typeof(ButtonLabel))]
     public class Button : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
@@ -33,6 +34,7 @@ namespace Materialium
             }
 
             builder.AddContent(n++, ChildContent);
+            builder.CloseElement();
         }
 
         [Parameter]
