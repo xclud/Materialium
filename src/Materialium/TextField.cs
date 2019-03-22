@@ -15,7 +15,7 @@ namespace Materialium
         {
             base.BuildRenderTree(builder);
             var n = OpenElementWithCommonAttributes(builder, "div");
-
+            CaptureElementReference(builder, ref n);
 
             builder.AddContent(n++, ChildContent);
             builder.CloseElement();
