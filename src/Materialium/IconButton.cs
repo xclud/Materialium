@@ -6,51 +6,21 @@ using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
-    public class IconButton : MaterialComponentBase
+    public class IconButton : ButtonBase
     {
-        public const string Class = "mdc-icon-button";
-        public const string Icon = "mdc-icon-button__icon";
-
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
-        {
-            base.BuildRenderTree(builder);
-            var n = OpenElementWithCommonAttributes(builder, string.IsNullOrWhiteSpace(Href) ? "button" : "a");
-
-            if (!string.IsNullOrWhiteSpace(Href))
-            {
-                builder.AddAttribute(n++, "href", Href);
-
-                if (!string.IsNullOrWhiteSpace(Title))
-                {
-                    builder.AddAttribute(n++, "title", Title);
-                }
-
-                if (!string.IsNullOrWhiteSpace(Target))
-                {
-                    builder.AddAttribute(n++, "target", Target);
-                }
-            }
-
-            builder.AddContent(n++, ChildContent);
-            builder.CloseElement();
-        }
-
         [Parameter]
         bool On { get; set; }
 
-        [Parameter] string Href { get; set; }
-
-
-        [Parameter]
-        string Title { get; set; }
-
-        [Parameter]
-        string Target { get; set; }
-
-
         protected override IEnumerable<string> GetClasses()
         {
-            yield return "mdc-icon-button";
+            yield return Classes.IconButton;
+
+            var b = base.GetClasses();
+
+            foreach (var c in b)
+            {
+                yield return c;
+            }
 
             if (On)
             {
