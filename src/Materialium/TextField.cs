@@ -94,8 +94,12 @@ namespace Materialium
         {
             if (isFirstRender)
             {
-                isFirstRender = false;
-                await JsRuntime.InvokeAsync<object>("Materialium.textField.init", element);
+                try
+                {
+                    await JsRuntime.InvokeAsync<object>("Materialium.textField.init", element);
+                    isFirstRender = false;
+                }
+                catch { }
             }
         }
 
