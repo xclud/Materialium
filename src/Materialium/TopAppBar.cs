@@ -75,10 +75,10 @@ namespace Materialium
                 try
                 {
                     await jsRuntime.InvokeAsync<object>("Materialium.topAppBar.init", element, ScrollTarget);
+                    isFirstRender = false;
                 }
                 catch { }
 
-                isFirstRender = false;
             }
         }
 
