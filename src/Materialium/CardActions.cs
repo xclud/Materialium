@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
-    [Accepts(typeof(CardButtons), typeof(CardIcons), typeof(CardButton))]
+    [Accepts(typeof(CardButtons), typeof(CardIcons), typeof(Button))]
     public class CardActions : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)

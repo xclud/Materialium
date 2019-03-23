@@ -53,6 +53,9 @@ namespace Materialium
         bool Disabled { get; set; }
 
         [Parameter]
+        bool ForCard { get; set; }
+
+        [Parameter]
         string Title { get; set; }
 
         [Parameter]
@@ -83,6 +86,12 @@ namespace Materialium
             if (Dense)
             {
                 yield return Classes.Dense;
+            }
+
+            if (ForCard)
+            {
+                yield return "mdc-card__action";
+                yield return "mdc-card__action--button";
             }
         }
 
