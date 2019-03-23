@@ -6,6 +6,7 @@ using Microsoft.JSInterop;
 
 namespace Materialium
 {
+    [Accepts(typeof(TextFieldBottomLine), typeof(TextFieldCharacterCounter), typeof(TextFieldHelperLine), typeof(TextFieldHelperText), typeof(TextFieldIcon))]
     public class TextField : MaterialComponentBase
     {
         [Inject] private IJSRuntime JsRuntime { get; set; }
