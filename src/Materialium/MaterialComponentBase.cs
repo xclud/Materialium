@@ -9,7 +9,7 @@ namespace Materialium
 
         [Parameter] internal RenderFragment ChildContent { get; set; }
 
-        [Parameter] string Class { get; set; }
+        [Parameter] internal string Class { get; set; }
 
         [Parameter] string Style { get; set; }
 
