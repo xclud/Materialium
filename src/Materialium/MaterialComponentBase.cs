@@ -22,6 +22,16 @@ namespace Materialium
         [Parameter] EventCallback<UIDragEventArgs> OnDragStart { get; set; }
         [Parameter] EventCallback<UIDragEventArgs> OnDragEnd { get; set; }
         [Parameter] EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        [Parameter]
+        EventCallback<UIMouseEventArgs> OnMouseUp { get; set; }
+        [Parameter]
+        EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
+        [Parameter]
+        EventCallback<UIKeyboardEventArgs> OnKeyPress { get; set; }
+        [Parameter]
+        EventCallback<UIKeyboardEventArgs> OnKeyDown { get; set; }
+        [Parameter]
+        EventCallback<UIKeyboardEventArgs> OnKeyUp { get; set; }
 
         protected abstract IEnumerable<string> GetClasses();
 
@@ -81,10 +91,9 @@ namespace Materialium
             if (OnDrop.HasDelegate) builder.AddAttribute(n++, "ondrop", OnDrop);
 
 
-            if (OnClick.HasDelegate)
-            {
-                builder.AddAttribute(n++, "onclick", OnClick);
-            }
+            if (OnClick.HasDelegate) builder.AddAttribute(n++, "onclick", OnClick);
+            if (OnMouseUp.HasDelegate) builder.AddAttribute(n++, "onmouseup", OnMouseUp);
+
 
             return n;
         }
