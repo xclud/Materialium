@@ -32,10 +32,10 @@ namespace Materialium
         Action Opened { get; set; }
 
         [Parameter]
-        Action Closing { get; set; }
+        Action<string> Closing { get; set; }
 
         [Parameter]
-        Action Closed { get; set; }
+        Action<string> Closed { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {
