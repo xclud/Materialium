@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace Materialium
 {
@@ -13,6 +14,7 @@ namespace Materialium
         {
             base.BuildRenderTree(builder);
             var n = OpenElementWithCommonAttributes(builder, "select");
+            CaptureElementReference(builder, ref n);
             builder.AddContent(n++, ChildContent);
             builder.CloseElement();
         }
@@ -45,6 +47,24 @@ namespace Materialium
                 yield return Classes.WithLeadingIcon;
             }
         }
+
+
+        bool isFirstRender = true;
+
+        protected override async Task OnAfterRenderAsync()
+        {
+            if (isFirstRender)
+            {
+                try
+                {
+                    await JsRuntime.InvokeAsync<object>("Materialium.select.init", element);
+                    isFirstRender = false;
+                }
+                catch { }
+            }
+        }
+
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
 
         public static class Classes
         {
