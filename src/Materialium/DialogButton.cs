@@ -9,6 +9,7 @@ namespace Materialium
     public class DialogButton : Button
     {
         [Parameter] string Action { get; set; }
+        [Parameter] bool Default { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {
@@ -20,6 +21,11 @@ namespace Materialium
             }
 
             yield return "mdc-dialog__button";
+
+            if(Default)
+            {
+                yield return "mdc-dialog__button--default";
+            }
         }
 
         internal override void BuildAttributes(RenderTreeBuilder builder, ref int n)
