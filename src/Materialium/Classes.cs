@@ -13,24 +13,6 @@ namespace Materialium
             public const string ButtonIcon = "mdc-button__icon";
         }
 
-        public static class Card
-        {
-            public const string Base = "mdc-card";
-            public const string Outlined = "mdc-card--outlined";
-            public const string PrimaryAction = "mdc-card__primary-action";
-            public const string Media = "mdc-card__media";
-            public const string MediaSquare = "mdc-card__media--square";
-            public const string Media16by9 = "mdc-card__media--16-9";
-            public const string MediaContent = "mdc-card__media-content";
-            public const string Actions = "mdc-card__actions";
-            public const string ActionsFullBleed = "mdc-card__actions--full-bleed";
-            public const string ActionButtons = "mdc-card__action-buttons";
-            public const string ActionIcons = "mdc-card__action-icons";
-            public const string Action = "mdc-card__action";
-            public const string ActionButton = "mdc-card__action--button";
-            public const string ActionIcon = "mdc-card__action--icon";
-        }
-
         public static class Tab
         {
             /// <summary>
