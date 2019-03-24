@@ -34,6 +34,8 @@ namespace Materialium
                 }
             }
 
+            BuildAttributes(builder, ref n);
+
             builder.AddContent(n++, ChildContent);
             builder.CloseElement();
         }
@@ -61,6 +63,11 @@ namespace Materialium
 
         [Parameter]
         string Href { get; set; }
+
+        internal virtual void BuildAttributes(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, ref int n)
+        {
+
+        }
 
         protected override IEnumerable<string> GetClasses()
         {
