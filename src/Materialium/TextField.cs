@@ -6,6 +6,9 @@ using Microsoft.JSInterop;
 
 namespace Materialium
 {
+    /// <summary>
+    /// Text fields allow users to input, edit, and select text.
+    /// </summary>
     [Accepts(typeof(TextFieldBottomLine), typeof(TextFieldCharacterCounter), typeof(TextFieldHelperLine), typeof(TextFieldHelperText), typeof(TextFieldIcon))]
     public class TextField : MaterialComponentBase
     {
@@ -74,6 +77,13 @@ namespace Materialium
 
         [Parameter] bool Outlined { get; set; } = true;
 
+        /// <summary>
+        /// Full width text fields are useful for in-depth tasks or entering complex information.
+        /// </summary>
+        /// <remarks>
+        /// <para>Do not use <see cref="Outlined"/> to style a full width text field.</para>
+        /// <para>Do not use <see cref="FloatingLabel"/> within <see cref="FullWidth"/>. Labels should not be included as part of the DOM structure of a full width text field.</para>
+        /// </remarks>
         [Parameter] bool FullWidth { get; set; }
 
         [Parameter] bool WithLeadingIcon { get; set; }

@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
+    /// <summary>
+    /// MDC Form Field aligns an MDC Web form field (for example, <see cref="Checkbox"/>) with its label and makes it RTL-aware. It also activates a ripple effect upon interacting with the label.
+    /// </summary>
     public class FormField : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
