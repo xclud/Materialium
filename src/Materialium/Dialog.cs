@@ -8,6 +8,8 @@ namespace Materialium
 {
     public class Dialog : MaterialComponentBase
     {
+        private object reference;
+
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);
@@ -25,18 +27,6 @@ namespace Materialium
         [Parameter]
         bool Stacked { get; set; }
 
-        [Parameter]
-        Action Opening { get; set; }
-
-        [Parameter]
-        Action Opened { get; set; }
-
-        [Parameter]
-        Action<string> Closing { get; set; }
-
-        [Parameter]
-        Action<string> Closed { get; set; }
-
         protected override IEnumerable<string> GetClasses()
         {
             yield return "mdc-dialog";
@@ -52,13 +42,19 @@ namespace Materialium
             }
         }
 
+        public async Task<object> Show()
+        {
+            var result = await jsRuntime.InvokeAsync<object>("Materialium.dialog.show", reference);
+            return result;
+        }
+
         protected override async Task OnAfterRenderAsync()
         {
             try
             {
-                await jsRuntime.InvokeAsync<object>("Materialium.dialog.show", element, Opening, Opened, Closing, Closed);
+                reference = await jsRuntime.InvokeAsync<object>("Materialium.dialog.init", element);
             }
-            catch { }
+            catch(Exception exp) { }
         }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime jsRuntime { get; set; }
     }
