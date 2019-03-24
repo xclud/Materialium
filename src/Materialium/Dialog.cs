@@ -42,9 +42,9 @@ namespace Materialium
             }
         }
 
-        public async Task<object> ShowAsync()
+        public async Task<string> ShowAsync()
         {
-            var result = await jsRuntime.InvokeAsync<object>("Materialium.dialog.show", reference);
+            var result = await jsRuntime.InvokeAsync<string>("Materialium.dialog.show", reference);
             return result;
         }
 
