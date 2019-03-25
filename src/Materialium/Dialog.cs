@@ -58,6 +58,11 @@ namespace Materialium
             return CloseAsync(null);
         }
 
+        public async Task LayoutAsync()
+        {
+            await jsRuntime.InvokeAsync<object>("Materialium.dialog.layout", reference);
+        }
+
         protected override async Task OnAfterRenderAsync()
         {
             try
