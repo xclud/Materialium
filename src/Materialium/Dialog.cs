@@ -48,6 +48,16 @@ namespace Materialium
             return result;
         }
 
+        public async Task CloseAsync(string action)
+        {
+            await jsRuntime.InvokeAsync<object>("Materialium.dialog.close", reference, action);
+        }
+
+        public Task CloseAsync()
+        {
+            return CloseAsync(null);
+        }
+
         protected override async Task OnAfterRenderAsync()
         {
             try
