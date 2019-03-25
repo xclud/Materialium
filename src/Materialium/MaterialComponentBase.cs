@@ -9,6 +9,9 @@ namespace Materialium
 
         [Parameter] internal RenderFragment ChildContent { get; set; }
 
+        [Parameter] string Id { get; set; }
+        [Parameter] string Name { get; set; }
+
         [Parameter] internal string Class { get; set; }
 
         [Parameter] string Style { get; set; }
@@ -62,6 +65,16 @@ namespace Materialium
         {
             int n = 0;
             builder.OpenElement(n++, elementName);
+
+            if (!string.IsNullOrWhiteSpace(Id))
+            {
+                builder.AddAttribute(n++, "id", Id);
+            }
+
+            if(!string.IsNullOrWhiteSpace(Name))
+            {
+                builder.AddAttribute(n++, "name", Name);
+            }
 
             builder.AddAttribute(n++, "class", InternalClasses);
 
