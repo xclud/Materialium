@@ -44,13 +44,13 @@ namespace Materialium
 
         public async Task<string> ShowAsync()
         {
-            var result = await jsRuntime.InvokeAsync<string>("Materialium.dialog.show", reference);
+            var result = await JSRuntime.InvokeAsync<string>("Materialium.dialog.show", reference);
             return result;
         }
 
         public async Task CloseAsync(string action)
         {
-            await jsRuntime.InvokeAsync<object>("Materialium.dialog.close", reference, action);
+            await JSRuntime.InvokeAsync<object>("Materialium.dialog.close", reference, action);
         }
 
         public Task CloseAsync()
@@ -60,17 +60,18 @@ namespace Materialium
 
         public async Task LayoutAsync()
         {
-            await jsRuntime.InvokeAsync<object>("Materialium.dialog.layout", reference);
+            await JSRuntime.InvokeAsync<object>("Materialium.dialog.layout", reference);
         }
 
         protected override async Task OnAfterRenderAsync()
         {
             try
             {
-                reference = await jsRuntime.InvokeAsync<object>("Materialium.dialog.init", element);
+                reference = await JSRuntime.InvokeAsync<object>("Materialium.dialog.init", element);
             }
             catch(Exception exp) { }
         }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime jsRuntime { get; set; }
+        [Inject] private IJSRuntime JSRuntime { get; set; }
+        //[Inject] private IComponentContext ComponentContext { get; set; }
     }
 }

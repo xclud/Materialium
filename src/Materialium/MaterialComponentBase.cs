@@ -6,6 +6,10 @@ namespace Materialium
     public abstract class MaterialComponentBase : ComponentBase
     {
         internal ElementRef element;
+        internal MaterialComponentBase()
+        {
+
+        }
 
         [Parameter] internal RenderFragment ChildContent { get; set; }
 
@@ -106,6 +110,7 @@ namespace Materialium
 
             if (OnClick.HasDelegate) builder.AddAttribute(n++, "onclick", OnClick);
             if (OnMouseUp.HasDelegate) builder.AddAttribute(n++, "onmouseup", OnMouseUp);
+            if (OnMouseDown.HasDelegate) builder.AddAttribute(n++, "onmousedown", OnMouseDown);
 
 
             return n;

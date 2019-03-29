@@ -13,7 +13,7 @@ namespace Materialium
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);
-            var n = OpenElementWithCommonAttributes(builder, "select");
+            var n = OpenElementWithCommonAttributes(builder, "div");
             CaptureElementReference(builder, ref n);
             builder.AddContent(n++, ChildContent);
             builder.CloseElement();
