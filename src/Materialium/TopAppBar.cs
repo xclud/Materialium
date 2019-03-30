@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Services;
 using Microsoft.JSInterop;
 
 namespace Materialium
@@ -70,18 +71,12 @@ namespace Materialium
 
         protected override async Task OnAfterRenderAsync()
         {
-            if (isFirstRender)
+            if (isFirstRender && ComponentContext.IsConnected)
             {
-                try
-                {
-                    await jsRuntime.InvokeAsync<object>("Materialium.topAppBar.init", element, ScrollTarget);
-                    isFirstRender = false;
-                }
-                catch { }
+                await JSRuntime.InvokeAsync<object>("Materialium.topAppBar.init", element, ScrollTarget);
+                isFirstRender = false;
 
             }
         }
-
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime jsRuntime { get; set; }
     }
 }

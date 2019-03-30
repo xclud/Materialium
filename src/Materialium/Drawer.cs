@@ -43,16 +43,11 @@ namespace Materialium
 
         protected override async Task OnAfterRenderAsync()
         {
-            if (isFirstRender)
+            if (isFirstRender && ComponentContext.IsConnected)
             {
-                try
-                {
-                    await jsRuntime.InvokeAsync<object>("Materialium.drawer.init", element);
-                    isFirstRender = false;
-                }
-                catch { }
+                await JSRuntime.InvokeAsync<object>("Materialium.drawer.init", element);
+                isFirstRender = false;
             }
         }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime jsRuntime { get; set; }
     }
 }

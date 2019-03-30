@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Services;
+using Microsoft.JSInterop;
 using System.Collections.Generic;
 
 namespace Materialium
@@ -6,6 +8,9 @@ namespace Materialium
     public abstract class MaterialComponentBase : ComponentBase
     {
         internal ElementRef element;
+        [Inject] internal IJSRuntime JSRuntime { get; set; }
+        [Inject] internal IComponentContext ComponentContext { get; set; }
+
         internal MaterialComponentBase()
         {
 
