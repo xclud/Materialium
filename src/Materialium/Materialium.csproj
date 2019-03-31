@@ -12,9 +12,7 @@
     <IsShippingPackage>true</IsShippingPackage>
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageReleaseNotes>- Adds Dialog component.
-- Adds Id and Name parameters to all components.
-- Minor fixes and improvements.</PackageReleaseNotes>
+    <PackageReleaseNotes>- Minor fixes and improvements.</PackageReleaseNotes>
     <PackageTags>MDC MDC-Web Material Material-Design .NET-Core Razor-Component Razor Component Blazor Web-Assembly WASM</PackageTags>
     <PackageProjectUrl>https://github.com/xclud/Materialium</PackageProjectUrl>
     <IncludeSymbols>true</IncludeSymbols>
