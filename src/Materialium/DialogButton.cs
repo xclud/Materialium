@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Materialium
 {
-    [Accepts(typeof(ButtonIcon), typeof(ButtonLabel))]
     public class DialogButton : Button
     {
         [Parameter] string Action { get; set; }
