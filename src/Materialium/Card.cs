@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
-    [Accepts(typeof(CardMedia), typeof(CardContent), typeof(CardPrimaryAction), typeof(CardActions))]
     public class Card : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)

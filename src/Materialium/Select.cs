@@ -7,7 +7,6 @@ using Microsoft.JSInterop;
 
 namespace Materialium
 {
-    [Accepts(typeof(SelectDropDownIcon))]
     public class Select : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)

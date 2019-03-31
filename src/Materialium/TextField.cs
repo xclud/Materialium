@@ -9,7 +9,6 @@ namespace Materialium
     /// <summary>
     /// Text fields allow users to input, edit, and select text.
     /// </summary>
-    [Accepts(typeof(TextFieldBottomLine), typeof(TextFieldCharacterCounter), typeof(TextFieldHelperLine), typeof(TextFieldHelperText), typeof(TextFieldIcon))]
     public class TextField : MaterialComponentBase
     {
         bool isFirstRender = true;

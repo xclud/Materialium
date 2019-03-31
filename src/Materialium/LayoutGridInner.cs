@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
-    [Accepts(typeof(LayoutGridCell))]
     public class LayoutGridInner : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)

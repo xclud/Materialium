@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
-    [Accepts(typeof(Card), typeof(List), typeof(ImageList), typeof(TabBar))]
     public class LayoutGridCell : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)

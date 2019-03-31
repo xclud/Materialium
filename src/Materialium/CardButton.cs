@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
-    [Accepts(typeof(ButtonIcon), typeof(ButtonLabel))]
     public class CardButton : Button
     {
         protected override IEnumerable<string> GetClasses()

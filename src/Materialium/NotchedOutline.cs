@@ -5,7 +5,6 @@ using Microsoft.JSInterop;
 
 namespace Materialium
 {
-    [Accepts(typeof(NotchedOutlineLeading), typeof(NotchedOutlineNotch), typeof(NotchedOutlineTrailing))]
     public class NotchedOutline : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
