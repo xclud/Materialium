@@ -101,7 +101,11 @@ window.Materialium = {
             mdc.textField.MDCTextField.attachTo(elem);
         }
     },
-
+    slider: {
+        init: function (elem) {
+            mdc.slider.MDCSlider.attachTo(elem);
+        }
+    },
     switch: {
         init: function (elem) {
             mdc.switchControl.MDCSwitch.attachTo(elem);

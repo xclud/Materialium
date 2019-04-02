@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
-    public class RadioMixedmark : MaterialComponentBase
+    public class SliderFocusRing : MaterialComponentBase
     {
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
         {
@@ -16,7 +18,7 @@ namespace Materialium
 
         protected override IEnumerable<string> GetClasses()
         {
-            yield return "mdc-radio__mixedmark";
+            yield return Slider.Classes.FocusRing;
         }
     }
 }
