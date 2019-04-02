@@ -34,6 +34,16 @@ namespace Materialium
             }
         }
 
+        bool isFirstRender = true;
+        protected override async Task OnAfterRenderAsync()
+        {
+            if (isFirstRender && ComponentContext.IsConnected)
+            {
+                await JSRuntime.InvokeAsync<object>("Materialium.switch.init", element);
+                isFirstRender = false;
+            }
+        }
+
         public static class Classes
         {
             public const string Switch = "mdc-switch";

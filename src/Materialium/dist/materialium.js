@@ -103,9 +103,8 @@ window.Materialium = {
     },
 
     switch: {
-        setChecked: function (elem, isChecked) {
-            const switchControl = mdc.switchControl.MDCSwitch.attachTo(elem);
-            switchControl.checked = isChecked;
+        init: function (elem) {
+            mdc.switchControl.MDCSwitch.attachTo(elem);
         }
     },
     draganddrop: {
