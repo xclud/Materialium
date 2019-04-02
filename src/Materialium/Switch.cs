@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
+
+namespace Materialium
+{
+    public class Switch : MaterialComponentBase
+    {
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
+        {
+            base.BuildRenderTree(builder);
+            var n = OpenElementWithCommonAttributes(builder, "div");
+            builder.AddContent(n++, ChildContent);
+            builder.CloseElement();
+        }
+
+        [Parameter] bool Checked { get; set; }
+        [Parameter] bool Disabled { get; set; }
+
+        protected override IEnumerable<string> GetClasses()
+        {
+            yield return Classes.Switch;
+
+            if (Checked)
+            {
+                yield return Classes.Checked;
+            }
+
+            if (Disabled)
+            {
+                yield return Classes.Disabled;
+            }
+        }
+
+        public static class Classes
+        {
+            public const string Switch = "mdc-switch";
+            public const string Checked = "mdc-switch--checked";
+            public const string Disabled = "mdc-switch--disabled";
+            public const string Track = "mdc-switch__track";
+            public const string ThumbOverlay = "mdc-switch__thumb-underlay";
+            public const string Thumb = "mdc-switch__thumb";
+            public const string NativeControl = "mdc-switch__native-control";
+        }
+    }
+}
