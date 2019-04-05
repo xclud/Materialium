@@ -18,7 +18,7 @@ namespace Materialium
 
         protected override IEnumerable<string> GetClasses()
         {
-            yield return Select.Classes.SelectedText;
+            yield return MaterialSelect.Classes.SelectedText;
         }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Materialium
 {
-    public class Button : ButtonBase
+    public class MaterialButton : ButtonBase
     {
         protected override IEnumerable<string> GetClasses()
         {
