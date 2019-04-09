@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Services;
 using Microsoft.JSInterop;
 using System.Collections.Generic;
 
@@ -116,6 +115,10 @@ namespace Materialium
             if (OnClick.HasDelegate) builder.AddAttribute(n++, "onclick", OnClick);
             if (OnMouseUp.HasDelegate) builder.AddAttribute(n++, "onmouseup", OnMouseUp);
             if (OnMouseDown.HasDelegate) builder.AddAttribute(n++, "onmousedown", OnMouseDown);
+
+            if (OnKeyPress.HasDelegate) builder.AddAttribute(n++, "onkeypress", OnKeyPress);
+            if (OnKeyUp.HasDelegate) builder.AddAttribute(n++, "onkeyup", OnKeyUp);
+            if (OnKeyDown.HasDelegate) builder.AddAttribute(n++, "onkeydown", OnKeyDown);
 
 
             return n;
