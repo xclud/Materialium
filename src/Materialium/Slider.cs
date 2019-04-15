@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace Materialium
 {
@@ -41,6 +42,13 @@ namespace Materialium
         [Parameter] float Value { get; set; }
         [Parameter] float? Step { get; set; }
 
+
+        [JSInvokable]
+        private void RaiseValueChanged(float value)
+        {
+
+        }
+
         protected override IEnumerable<string> GetClasses()
         {
             yield return Classes.Slider;
@@ -61,7 +69,7 @@ namespace Materialium
         {
             if (isFirstRender && ComponentContext.IsConnected)
             {
-                await JSRuntime.InvokeAsync<object>("Materialium.slider.init", element);
+                await JSRuntime.InvokeAsync<object>("Materialium.slider.init", element, new DotNetObjectRef(this));
                 isFirstRender = false;
             }
         }

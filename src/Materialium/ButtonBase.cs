@@ -100,6 +100,9 @@ namespace Materialium
             public const string Unelevated = "mdc-button--unelevated";
             public const string Dense = "mdc-button--dense";
 
+            public const string ButtonLabel = "mdc-button__label";
+            public const string ButtonIcon = "mdc-button__icon";
+
             public const string IconButton = "mdc-icon-button";
             public const string IconButtonIcon = "mdc-icon-button__icon";
         }

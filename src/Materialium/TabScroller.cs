@@ -41,5 +41,16 @@ namespace Materialium
 
             return classes;
         }
+
+
+        public static class Classes
+        {
+            public const string TabScroller = "mdc-tab-scroller";
+            public const string AlignStart = "mdc-tab-scroller--align-start";
+            public const string AlignEnd = "mdc-tab-scroller--align-end";
+            public const string AlignCenter = "mdc-tab-scroller--align-center";
+            public const string ScrollArea = "mdc-tab-scroller__scroll-area";
+            public const string ScrollContent = "mdc-tab-scroller__scroll-content";
+        }
     }
 }

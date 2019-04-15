@@ -37,5 +37,44 @@ namespace Materialium
 
             return classes;
         }
+
+        public static class Classes
+        {
+            /// <summary>
+            /// Mandatory. Contains the tab indicator content.
+            /// </summary>
+            public const string TabIndicator = "mdc-tab-indicator";
+
+            /// <summary>
+            /// Mandatory. Denotes the tab indicator content.
+            /// </summary>
+            public const string Content = "mdc-tab-indicator__content";
+
+            /// <summary>
+            /// Optional. Visually activates the indicator.
+            /// </summary>
+            public const string Active = "mdc-tab-indicator--active";
+
+            /// <summary>
+            /// Optional. Sets up the tab indicator to fade in on activation and fade out on deactivation.
+            /// </summary>
+            public const string Fade = "mdc-tab-indicator--fade";
+
+            /// <summary>
+            /// Optional. Denotes an underline tab indicator.
+            /// </summary>
+            /// <remarks>
+            /// Exactly one of the --underline or --icon content modifier classes should be present.
+            /// </remarks>
+            public const string ContentUnderline = "mdc-tab-indicator__content--underline";
+
+            /// <summary>
+            /// Optional. Denotes an icon tab indicator.
+            /// </summary>
+            /// <remarks>
+            /// Exactly one of the --underline or --icon content modifier classes should be present.
+            /// </remarks>
+            public const string ContentIcon = "mdc-tab-indicator__content--icon";
+        }
     }
 }

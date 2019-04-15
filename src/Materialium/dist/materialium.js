@@ -102,8 +102,9 @@ window.Materialium = {
         }
     },
     slider: {
-        init: function (elem) {
-            mdc.slider.MDCSlider.attachTo(elem);
+        init: function (elem, obj) {
+            const slider = mdc.slider.MDCSlider.attachTo(elem);
+            slider.listen('MDCSlider:change', () => obj.invokeMethodAsync("RaiseValueChanged", slider.value));
         }
     },
     switch: {
