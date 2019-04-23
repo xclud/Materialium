@@ -80,6 +80,11 @@ window.Materialium = {
             mdc.tabBar.MDCTabBar.attachTo(elem);
         }
     },
+    snackbar: {
+        init: function (elem) {
+            mdc.snackbar.MDCSnackbar.attachTo(elem);
+        }
+    },
     notchedOutline: {
         init: function (elem) {
             mdc.notchedOutline.MDCNotchedOutline.attachTo(elem);
