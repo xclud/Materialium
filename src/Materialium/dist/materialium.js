@@ -20,6 +20,12 @@ window.Materialium = {
         }
     },
 
+    ripple: {
+        init: function (elem) {
+            mdc.ripple.MDCRipple.attachTo(elem);
+        }
+    },
+
     drawer: {
         init: function (elem) {
             const drawer = mdc.drawer.MDCDrawer.attachTo(elem);
