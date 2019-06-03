@@ -10,13 +10,19 @@ namespace Materialium
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);
-            var n = OpenElementWithCommonAttributes(builder, "button");
-            builder.AddAttribute(n++, "aria-label", "Favorite");
+            var n = OpenElementWithCommonAttributes(builder, string.IsNullOrWhiteSpace(Href) ? "button" : "a");
+
+            if(!string.IsNullOrWhiteSpace(Href))
+            {
+                builder.AddAttribute(n++, "href", Href);
+            }
+
             CaptureElementReference(builder, ref n);
             builder.AddContent(n++, ChildContent);
             builder.CloseElement();
         }
 
+        [Parameter] string Href { get; set; }
         [Parameter] bool Mini { get; set; }
         [Parameter] bool Extended { get; set; }
 
