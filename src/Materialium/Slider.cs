@@ -69,7 +69,7 @@ namespace Materialium
         {
             if (isFirstRender && ComponentContext.IsConnected)
             {
-                await JSRuntime.InvokeAsync<object>("Materialium.slider.init", element, new DotNetObjectRef(this));
+                await JSRuntime.InvokeAsync<object>("Materialium.slider.init", element, DotNetObjectRef.Create(this));
                 isFirstRender = false;
             }
         }
