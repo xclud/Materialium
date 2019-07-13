@@ -16,10 +16,10 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Active { get; set; }
+        public bool Active { get; set; }
 
         [Parameter]
-        bool Fade { get; set; }
+        public bool Fade { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

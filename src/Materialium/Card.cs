@@ -17,7 +17,7 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Outlined { get; set; }
+        public bool Outlined { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

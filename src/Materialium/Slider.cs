@@ -32,15 +32,15 @@ namespace Materialium
             builder.CloseElement();
         }
 
-        [Parameter] bool Discrete { get; set; }
-        [Parameter] bool DisplayMarkers { get; set; }
+        [Parameter] public bool Discrete { get; set; }
+        [Parameter] public bool DisplayMarkers { get; set; }
 
-        [Parameter] bool Disabled { get; set; }
+        [Parameter] public bool Disabled { get; set; }
 
-        [Parameter] float Minimum { get; set; }
-        [Parameter] float Maximum { get; set; }
-        [Parameter] float Value { get; set; }
-        [Parameter] float? Step { get; set; }
+        [Parameter] public float Minimum { get; set; }
+        [Parameter] public float Maximum { get; set; }
+        [Parameter] public float Value { get; set; }
+        [Parameter] public float? Step { get; set; }
 
 
         [JSInvokable]

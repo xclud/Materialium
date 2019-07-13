@@ -16,7 +16,8 @@ namespace Materialium
             builder.CloseElement();
         }
 
-        [Parameter] bool Selected { get; set; }
+        [Parameter]
+        public bool Selected { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

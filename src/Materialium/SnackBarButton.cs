@@ -7,7 +7,7 @@ namespace Materialium
 {
     public class SnackBarButton : MaterialButton
     {
-        [Parameter] bool Dismiss { get; set; }
+        [Parameter] public bool Dismiss { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

@@ -41,28 +41,28 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Outlined { get; set; }
+        public bool Outlined { get; set; }
 
         [Parameter]
-        bool Unelevated { get; set; }
+        public bool Unelevated { get; set; }
 
         [Parameter]
-        bool Raised { get; set; }
+        public bool Raised { get; set; }
 
         [Parameter]
-        bool Dense { get; set; }
+        public bool Dense { get; set; }
 
         [Parameter]
-        bool Disabled { get; set; }
+        public bool Disabled { get; set; }
 
         [Parameter]
-        string Title { get; set; }
+        public string Title { get; set; }
 
         [Parameter]
-        string Target { get; set; }
+        public string Target { get; set; }
 
         [Parameter]
-        string Href { get; set; }
+        public string Href { get; set; }
 
         internal virtual void BuildAttributes(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, ref int n)
         {

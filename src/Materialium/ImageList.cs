@@ -17,10 +17,10 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Masonry { get; set; }
+        public bool Masonry { get; set; }
 
         [Parameter]
-        bool WithTextProtection { get; set; }
+        public bool WithTextProtection { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

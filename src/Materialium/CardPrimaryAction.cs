@@ -13,7 +13,7 @@ namespace Materialium
             base.BuildRenderTree(builder);
             var n = OpenElementWithCommonAttributes(builder, !string.IsNullOrWhiteSpace(Href) ? "a" : "div");
 
-            if(!string.IsNullOrWhiteSpace(Href))
+            if (!string.IsNullOrWhiteSpace(Href))
             {
                 builder.AddAttribute(n++, "href", Href);
             }
@@ -23,7 +23,7 @@ namespace Materialium
         }
 
         [Parameter]
-        string Href { get; set; }
+        public string Href { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

@@ -18,9 +18,9 @@ namespace Materialium
             builder.CloseElement();
         }
 
-        [Parameter] bool Open { get; set; }
-        [Parameter] bool Leading { get; set; }
-        [Parameter] bool Stacked { get; set; }
+        [Parameter] public bool Open { get; set; }
+        [Parameter] public bool Leading { get; set; }
+        [Parameter] public bool Stacked { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

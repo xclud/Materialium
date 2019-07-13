@@ -20,8 +20,8 @@ namespace Materialium
             builder.CloseElement();
         }
 
-        [Parameter] bool Leading { get; set; }
-        [Parameter] bool LeadingHidden { get; set; }
+        [Parameter] public bool Leading { get; set; }
+        [Parameter] public bool LeadingHidden { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

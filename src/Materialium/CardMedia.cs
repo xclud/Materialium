@@ -17,7 +17,7 @@ namespace Materialium
         }
 
         [Parameter]
-        CardMediaRatio Ratio { get; set; }
+        public CardMediaRatio Ratio { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

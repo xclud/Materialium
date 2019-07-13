@@ -19,22 +19,22 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Fixed { get; set; }
+        public bool Fixed { get; set; }
 
         [Parameter]
-        bool Short { get; set; }
+        public bool Short { get; set; }
 
         [Parameter]
-        bool Collapsed { get; set; }
+        public bool Collapsed { get; set; }
 
         [Parameter]
-        bool Prominent { get; set; }
+        public bool Prominent { get; set; }
 
         [Parameter]
-        bool Dense { get; set; }
+        public bool Dense { get; set; }
 
         [Parameter]
-        string ScrollTarget { get; set; }
+        public string ScrollTarget { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

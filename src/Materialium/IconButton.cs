@@ -9,7 +9,7 @@ namespace Materialium
     public class IconButton : ButtonBase
     {
         [Parameter]
-        bool On { get; set; }
+        public bool On { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

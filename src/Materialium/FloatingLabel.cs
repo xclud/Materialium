@@ -22,11 +22,11 @@ namespace Materialium
             builder.CloseElement();
         }
 
-        [Parameter] bool FloatAbove { get; set; }
+        [Parameter] public bool FloatAbove { get; set; }
 
-        [Parameter] bool Shake { get; set; }
+        [Parameter] public bool Shake { get; set; }
 
-        [Parameter] string For { get; set; }
+        [Parameter] public string For { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

@@ -18,7 +18,7 @@ namespace Materialium
         }
 
         [Parameter]
-        bool AlignEnd { get; set; }
+        public bool AlignEnd { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

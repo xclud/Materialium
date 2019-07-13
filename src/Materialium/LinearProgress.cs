@@ -18,9 +18,9 @@ namespace Materialium
             builder.CloseElement();
         }
 
-        [Parameter] bool Indeterminate { get; set; }
-        [Parameter] bool Reversed { get; set; }
-        [Parameter] bool Closed { get; set; }
+        [Parameter] public bool Indeterminate { get; set; }
+        [Parameter] public bool Reversed { get; set; }
+        [Parameter] public bool Closed { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

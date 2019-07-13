@@ -22,10 +22,10 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Scrollable { get; set; }
+        public bool Scrollable { get; set; }
 
         [Parameter]
-        bool Stacked { get; set; }
+        public bool Stacked { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

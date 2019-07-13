@@ -19,13 +19,13 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Outlined { get; set; }
+        public bool Outlined { get; set; }
 
         [Parameter]
-        bool Disabled { get; set; }
+        public bool Disabled { get; set; }
 
         [Parameter]
-        bool WithLeadingIcon { get; set; }
+        public bool WithLeadingIcon { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

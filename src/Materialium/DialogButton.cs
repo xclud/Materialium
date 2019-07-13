@@ -7,8 +7,8 @@ namespace Materialium
 {
     public class DialogButton : MaterialButton
     {
-        [Parameter] string Action { get; set; }
-        [Parameter] bool Default { get; set; }
+        [Parameter] public string Action { get; set; }
+        [Parameter] public bool Default { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

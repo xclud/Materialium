@@ -35,22 +35,22 @@ namespace Materialium
         }
 
         [Parameter]
-        string Href { get; set; }
+        public string Href { get; set; }
 
         [Parameter]
-        string Title { get; set; }
+        public string Title { get; set; }
 
         [Parameter]
-        string Target { get; set; }
+        public string Target { get; set; }
 
         [Parameter]
-        bool Activated { get; set; }
+        public bool Activated { get; set; }
 
         [Parameter]
-        bool Disabled { get; set; }
+        public bool Disabled { get; set; }
 
         [Parameter]
-        bool Selected { get; set; }
+        public bool Selected { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

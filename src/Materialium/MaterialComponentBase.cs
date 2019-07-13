@@ -15,34 +15,34 @@ namespace Materialium
 
         }
 
-        [Parameter] internal RenderFragment ChildContent { get; set; }
+        [Parameter] public RenderFragment ChildContent { get; set; }
 
-        [Parameter] string Id { get; set; }
-        [Parameter] string Name { get; set; }
+        [Parameter] public string Id { get; set; }
+        [Parameter] public string Name { get; set; }
 
-        [Parameter] internal string Class { get; set; }
+        [Parameter] public string Class { get; set; }
 
-        [Parameter] string Style { get; set; }
+        [Parameter] public string Style { get; set; }
 
-        [Parameter] bool? Draggable { get; set; }
+        [Parameter] public bool? Draggable { get; set; }
 
-        [Parameter] EventCallback<UIDragEventArgs> OnDrop { get; set; }
-        [Parameter] EventCallback<UIDragEventArgs> OnDragEnter { get; set; }
-        [Parameter] EventCallback<UIDragEventArgs> OnDragLeave { get; set; }
-        [Parameter] EventCallback<UIDragEventArgs> OnDragOver { get; set; }
-        [Parameter] EventCallback<UIDragEventArgs> OnDragStart { get; set; }
-        [Parameter] EventCallback<UIDragEventArgs> OnDragEnd { get; set; }
-        [Parameter] EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        [Parameter] public EventCallback<UIDragEventArgs> OnDrop { get; set; }
+        [Parameter] public EventCallback<UIDragEventArgs> OnDragEnter { get; set; }
+        [Parameter] public EventCallback<UIDragEventArgs> OnDragLeave { get; set; }
+        [Parameter] public EventCallback<UIDragEventArgs> OnDragOver { get; set; }
+        [Parameter] public EventCallback<UIDragEventArgs> OnDragStart { get; set; }
+        [Parameter] public EventCallback<UIDragEventArgs> OnDragEnd { get; set; }
+        [Parameter] public EventCallback<UIMouseEventArgs> OnClick { get; set; }
         [Parameter]
-        EventCallback<UIMouseEventArgs> OnMouseUp { get; set; }
+        public EventCallback<UIMouseEventArgs> OnMouseUp { get; set; }
         [Parameter]
-        EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
+        public EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
         [Parameter]
-        EventCallback<UIKeyboardEventArgs> OnKeyPress { get; set; }
+        public EventCallback<UIKeyboardEventArgs> OnKeyPress { get; set; }
         [Parameter]
-        EventCallback<UIKeyboardEventArgs> OnKeyDown { get; set; }
+        public EventCallback<UIKeyboardEventArgs> OnKeyDown { get; set; }
         [Parameter]
-        EventCallback<UIKeyboardEventArgs> OnKeyUp { get; set; }
+        public EventCallback<UIKeyboardEventArgs> OnKeyUp { get; set; }
 
         protected abstract IEnumerable<string> GetClasses();
 
@@ -79,7 +79,7 @@ namespace Materialium
                 builder.AddAttribute(n++, "id", Id);
             }
 
-            if(!string.IsNullOrWhiteSpace(Name))
+            if (!string.IsNullOrWhiteSpace(Name))
             {
                 builder.AddAttribute(n++, "name", Name);
             }

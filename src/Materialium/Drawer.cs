@@ -19,10 +19,10 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Modal { get; set; }
+        public bool Modal { get; set; }
 
         [Parameter]
-        bool Dismissible { get; set; }
+        public bool Dismissible { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

@@ -22,9 +22,9 @@ namespace Materialium
             builder.CloseElement();
         }
 
-        [Parameter] string Href { get; set; }
-        [Parameter] bool Mini { get; set; }
-        [Parameter] bool Extended { get; set; }
+        [Parameter] public string Href { get; set; }
+        [Parameter] public bool Mini { get; set; }
+        [Parameter] public bool Extended { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

@@ -14,11 +14,11 @@ namespace Materialium
             builder.CloseElement();
         }
 
-        [Parameter] bool AlignStart { get; set; }
+        [Parameter] public bool AlignStart { get; set; }
 
-        [Parameter] bool AlignEnd { get; set; }
+        [Parameter] public bool AlignEnd { get; set; }
 
-        [Parameter] bool AlignCenter { get; set; }
+        [Parameter] public bool AlignCenter { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

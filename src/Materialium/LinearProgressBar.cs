@@ -18,7 +18,7 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Primary { get; set; }
+        public bool Primary { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

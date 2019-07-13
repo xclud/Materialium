@@ -16,7 +16,7 @@ namespace Materialium
         }
 
         [Parameter]
-        bool UseIcon { get; set; }
+        public bool UseIcon { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

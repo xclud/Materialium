@@ -17,19 +17,19 @@ namespace Materialium
         }
 
         [Parameter]
-        bool TwoLine { get; set; }
+        public bool TwoLine { get; set; }
 
         [Parameter]
-        bool Avatars { get; set; }
+        public bool Avatars { get; set; }
 
         [Parameter]
-        bool Dense { get; set; }
+        public bool Dense { get; set; }
 
         [Parameter]
-        bool NonInteractive { get; set; }
+        public bool NonInteractive { get; set; }
 
         [Parameter]
-        bool Navigation { get; set; }
+        public bool Navigation { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

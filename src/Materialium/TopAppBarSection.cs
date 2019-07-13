@@ -18,10 +18,10 @@ namespace Materialium
         }
 
         [Parameter]
-        bool AlignStart { get; set; }
+        public bool AlignStart { get; set; }
 
         [Parameter]
-        bool AlignEnd { get; set; }
+        public bool AlignEnd { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

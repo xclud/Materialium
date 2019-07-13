@@ -73,7 +73,7 @@ namespace Materialium
             }
         }
 
-        [Parameter] bool Outlined { get; set; } = true;
+        [Parameter] public bool Outlined { get; set; } = true;
 
         /// <summary>
         /// Full width text fields are useful for in-depth tasks or entering complex information.
@@ -82,22 +82,22 @@ namespace Materialium
         /// <para>Do not use <see cref="Outlined"/> to style a full width text field.</para>
         /// <para>Do not use <see cref="FloatingLabel"/> within <see cref="FullWidth"/>. Labels should not be included as part of the DOM structure of a full width text field.</para>
         /// </remarks>
-        [Parameter] bool FullWidth { get; set; }
+        [Parameter] public bool FullWidth { get; set; }
 
-        [Parameter] bool WithLeadingIcon { get; set; }
+        [Parameter] public bool WithLeadingIcon { get; set; }
 
-        [Parameter] bool WithTrailingIcon { get; set; }
+        [Parameter] public bool WithTrailingIcon { get; set; }
 
-        [Parameter] bool TextArea { get; set; }
+        [Parameter] public bool TextArea { get; set; }
 
-        [Parameter] bool Disabled { get; set; }
+        [Parameter] public bool Disabled { get; set; }
 
         [Obsolete("The --dense variant of the text field will be removed in an upcoming release. See https://github.com/material-components/material-components-web/issues/4142 for details.")]
-        [Parameter] bool Dense { get; set; }
+        [Parameter] public bool Dense { get; set; }
 
-        [Parameter] bool Focused { get; set; }
+        [Parameter] public bool Focused { get; set; }
 
-        [Parameter] bool NoLabel { get; set; }
+        [Parameter] public bool NoLabel { get; set; }
 
         protected override async Task OnAfterRenderAsync()
         {

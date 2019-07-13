@@ -16,8 +16,8 @@ namespace Materialium
             builder.CloseElement();
         }
 
-        [Parameter] bool Checked { get; set; }
-        [Parameter] bool Disabled { get; set; }
+        [Parameter] public bool Checked { get; set; }
+        [Parameter] public bool Disabled { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

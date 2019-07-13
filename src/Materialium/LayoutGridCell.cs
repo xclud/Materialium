@@ -35,12 +35,12 @@ namespace Materialium
         }
 
         [Parameter]
-        int? Desktop { get; set; }
+        public int? Desktop { get; set; }
 
         [Parameter]
-        int? Tablet { get; set; }
+        public int? Tablet { get; set; }
 
         [Parameter]
-        int? Phone { get; set; }
+        public int? Phone { get; set; }
     }
 }

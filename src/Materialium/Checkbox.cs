@@ -17,7 +17,7 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Disabled { get; set; }
+        public bool Disabled { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

@@ -17,7 +17,7 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Persistent { get; set; }
+        public bool Persistent { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {

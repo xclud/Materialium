@@ -25,13 +25,13 @@ namespace Materialium
         }
 
         [Parameter]
-        bool Active { get; set; }
+        public bool Active { get; set; }
 
         [Parameter]
-        bool Stacked { get; set; }
+        public bool Stacked { get; set; }
 
         [Parameter]
-        bool MinWidth { get; set; }
+        public bool MinWidth { get; set; }
 
 
         protected override IEnumerable<string> GetClasses()

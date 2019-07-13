@@ -15,7 +15,7 @@ namespace Materialium
         }
 
         [Parameter]
-        bool FullBleed { get; set; }
+        public bool FullBleed { get; set; }
 
         protected override IEnumerable<string> GetClasses()
         {
