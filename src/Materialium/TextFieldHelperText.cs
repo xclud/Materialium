@@ -19,9 +19,17 @@ namespace Materialium
         [Parameter]
         public bool Persistent { get; set; }
 
+        [Parameter]
+        public bool ValidationMessage { get; set; }
+
         protected override IEnumerable<string> GetClasses()
         {
             yield return "mdc-text-field-helper-text";
+
+            if (ValidationMessage)
+            {
+                yield return "mdc-text-field-helper-text--validation-msg";
+            }
 
             if (Persistent)
             {
