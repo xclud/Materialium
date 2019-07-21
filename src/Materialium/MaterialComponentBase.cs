@@ -6,7 +6,7 @@ namespace Materialium
 {
     public abstract class MaterialComponentBase : ComponentBase
     {
-        internal ElementRef element;
+        internal ElementReference element;
         [Inject] internal IJSRuntime JSRuntime { get; set; }
         [Inject] internal IComponentContext ComponentContext { get; set; }
 
