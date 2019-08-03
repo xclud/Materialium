@@ -26,23 +26,23 @@ namespace Materialium
 
         [Parameter] public bool? Draggable { get; set; }
 
-        [Parameter] public EventCallback<UIDragEventArgs> OnDrop { get; set; }
-        [Parameter] public EventCallback<UIDragEventArgs> OnDragEnter { get; set; }
-        [Parameter] public EventCallback<UIDragEventArgs> OnDragLeave { get; set; }
-        [Parameter] public EventCallback<UIDragEventArgs> OnDragOver { get; set; }
-        [Parameter] public EventCallback<UIDragEventArgs> OnDragStart { get; set; }
-        [Parameter] public EventCallback<UIDragEventArgs> OnDragEnd { get; set; }
-        [Parameter] public EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        [Parameter] public EventCallback OnDrop { get; set; }
+        [Parameter] public EventCallback OnDragEnter { get; set; }
+        [Parameter] public EventCallback OnDragLeave { get; set; }
+        [Parameter] public EventCallback OnDragOver { get; set; }
+        [Parameter] public EventCallback OnDragStart { get; set; }
+        [Parameter] public EventCallback OnDragEnd { get; set; }
+        [Parameter] public EventCallback OnClick { get; set; }
         [Parameter]
-        public EventCallback<UIMouseEventArgs> OnMouseUp { get; set; }
+        public EventCallback OnMouseUp { get; set; }
         [Parameter]
-        public EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
+        public EventCallback OnMouseDown { get; set; }
         [Parameter]
-        public EventCallback<UIKeyboardEventArgs> OnKeyPress { get; set; }
+        public EventCallback OnKeyPress { get; set; }
         [Parameter]
-        public EventCallback<UIKeyboardEventArgs> OnKeyDown { get; set; }
+        public EventCallback OnKeyDown { get; set; }
         [Parameter]
-        public EventCallback<UIKeyboardEventArgs> OnKeyUp { get; set; }
+        public EventCallback OnKeyUp { get; set; }
 
         protected abstract IEnumerable<string> GetClasses();
 

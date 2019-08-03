@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>8.0</LangVersion>
-    <Version>1.0.0-preview8-19370-04</Version>
+    <Version>1.0.0-preview9-19402-09</Version>
     <AssemblyVersion>0.0.0.32</AssemblyVersion>
     <FileVersion>0.0.0.32</FileVersion>
     <Authors>Mahdi K. Fard</Authors>
@@ -22,6 +22,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.0.0-preview8.19370.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.0.0-preview9.19402.9" />
   </ItemGroup>
 </Project>
