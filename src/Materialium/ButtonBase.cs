@@ -6,7 +6,7 @@ namespace Materialium
 {
     public abstract class ButtonBase : MaterialComponentBase
     {
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);
 
@@ -64,7 +64,7 @@ namespace Materialium
         [Parameter]
         public string Href { get; set; }
 
-        internal virtual void BuildAttributes(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, ref int n)
+        internal virtual void BuildAttributes(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder builder, ref int n)
         {
 
         }

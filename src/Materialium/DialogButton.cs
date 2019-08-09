@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Materialium
 {
@@ -27,7 +26,7 @@ namespace Materialium
             }
         }
 
-        internal override void BuildAttributes(RenderTreeBuilder builder, ref int n)
+        internal override void BuildAttributes(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder builder, ref int n)
         {
             if (!string.IsNullOrWhiteSpace(Action))
             {

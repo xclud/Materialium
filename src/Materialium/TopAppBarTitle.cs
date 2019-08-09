@@ -6,7 +6,7 @@ namespace Materialium
 {
     public class TopAppBarTitle : MaterialComponentBase
     {
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);
             var n = OpenElementWithCommonAttributes(builder, "span");

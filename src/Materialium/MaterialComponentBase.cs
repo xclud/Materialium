@@ -69,7 +69,7 @@ namespace Materialium
             }
         }
 
-        internal int OpenElementWithCommonAttributes(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, string elementName)
+        internal int OpenElementWithCommonAttributes(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder builder, string elementName)
         {
             int n = 0;
             builder.OpenElement(n++, elementName);
@@ -124,7 +124,7 @@ namespace Materialium
             return n;
         }
 
-        internal void CaptureElementReference(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder, ref int n)
+        internal void CaptureElementReference(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder builder, ref int n)
         {
             builder.AddElementReferenceCapture(n++, (__value) =>
             {

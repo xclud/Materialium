@@ -12,7 +12,7 @@ namespace Materialium
             Class = "material-icons";
         }
 
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder builder)
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);
             //NOTE: The floating action button icon can be used with a span, i, img, or svg element.
