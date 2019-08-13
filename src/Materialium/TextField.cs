@@ -99,7 +99,7 @@ namespace Materialium
 
         [Parameter] public bool NoLabel { get; set; }
 
-        protected override async Task OnAfterRenderAsync()
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (isFirstRender && ComponentContext.IsConnected)
             {

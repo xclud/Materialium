@@ -23,7 +23,7 @@ namespace Materialium
 
         bool isFirstRender = true;
 
-        protected override async Task OnAfterRenderAsync()
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (isFirstRender && ComponentContext.IsConnected)
             {
