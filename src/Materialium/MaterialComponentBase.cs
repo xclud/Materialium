@@ -8,7 +8,6 @@ namespace Materialium
     {
         internal ElementReference element;
         [Inject] internal IJSRuntime JSRuntime { get; set; }
-        [Inject] internal IComponentContext ComponentContext { get; set; }
 
         internal MaterialComponentBase()
         {

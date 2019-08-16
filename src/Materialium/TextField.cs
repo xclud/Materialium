@@ -11,7 +11,7 @@ namespace Materialium
     /// </summary>
     public class TextField : MaterialComponentBase
     {
-        bool isFirstRender = true;
+
 
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder builder)
         {
@@ -101,10 +101,10 @@ namespace Materialium
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (isFirstRender && ComponentContext.IsConnected)
+            if (firstRender)
             {
                 await JSRuntime.InvokeAsync<object>("Materialium.textField.init", element);
-                isFirstRender = false;
+
             }
         }
 

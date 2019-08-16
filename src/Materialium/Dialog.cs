@@ -65,7 +65,7 @@ namespace Materialium
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (ComponentContext.IsConnected)
+            if (firstRender)
             {
                 reference = await JSRuntime.InvokeAsync<object>("Materialium.dialog.init", element);
             }

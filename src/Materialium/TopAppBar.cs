@@ -66,14 +66,14 @@ namespace Materialium
             }
         }
 
-        bool isFirstRender = true;
+
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (isFirstRender && ComponentContext.IsConnected)
+            if (firstRender)
             {
                 await JSRuntime.InvokeAsync<object>("Materialium.topAppBar.init", element, ScrollTarget);
-                isFirstRender = false;
+
 
             }
         }

@@ -42,13 +42,13 @@ namespace Materialium
             }
         }
 
-        bool isFirstRender = true;
+
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (isFirstRender && ComponentContext.IsConnected)
+            if (firstRender)
             {
                 await JSRuntime.InvokeAsync<object>("Materialium.snackbar.init", element);
-                isFirstRender = false;
+
             }
         }
     }

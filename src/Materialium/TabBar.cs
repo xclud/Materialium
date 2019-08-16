@@ -23,13 +23,11 @@ namespace Materialium
             yield return "mdc-tab-bar";
         }
 
-        bool isFirstRender = true;
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (isFirstRender && ComponentContext.IsConnected)
+            if (firstRender)
             {
                 await JSRuntime.InvokeAsync<object>("Materialium.tabBar.init", element);
-                isFirstRender = false;
             }
         }
     }
