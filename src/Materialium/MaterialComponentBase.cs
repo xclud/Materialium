@@ -31,11 +31,11 @@ namespace Materialium
         [Parameter] public EventCallback OnDragOver { get; set; }
         [Parameter] public EventCallback OnDragStart { get; set; }
         [Parameter] public EventCallback OnDragEnd { get; set; }
-        [Parameter] public EventCallback OnClick { get; set; }
+        [Parameter] public EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs> OnClick { get; set; }
         [Parameter]
-        public EventCallback OnMouseUp { get; set; }
+        public EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs> OnMouseUp { get; set; }
         [Parameter]
-        public EventCallback OnMouseDown { get; set; }
+        public EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs> OnMouseDown { get; set; }
         [Parameter]
         public EventCallback OnKeyPress { get; set; }
         [Parameter]

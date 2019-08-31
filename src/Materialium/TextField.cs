@@ -57,7 +57,7 @@ namespace Materialium
             {
                 yield return "mdc-text-field--dense";
             }
-#pragma warning enable CS0618
+#pragma warning restore CS0618
 
             if (Focused)
             {

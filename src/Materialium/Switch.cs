@@ -39,7 +39,7 @@ namespace Materialium
         {
             if (firstRender)
             {
-                await JSRuntime.InvokeAsync<object>("Materialium.switch.init", element);
+                await JSRuntime.InvokeAsync<object>("Materialium.switch.init", new object[] { element });
 
             }
         }

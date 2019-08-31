@@ -69,7 +69,7 @@ namespace Materialium
         {
             if (firstRender)
             {
-                await JSRuntime.InvokeAsync<object>("Materialium.slider.init", element, DotNetObjectRef.Create(this));
+                await JSRuntime.InvokeAsync<object>("Materialium.slider.init", element, DotNetObjectReference.Create(this));
 
             }
         }

@@ -12,7 +12,7 @@ namespace Materialium
             base.BuildRenderTree(builder);
             var n = OpenElementWithCommonAttributes(builder, string.IsNullOrWhiteSpace(Href) ? "button" : "a");
 
-            if(!string.IsNullOrWhiteSpace(Href))
+            if (!string.IsNullOrWhiteSpace(Href))
             {
                 builder.AddAttribute(n++, "href", Href);
             }
@@ -45,7 +45,7 @@ namespace Materialium
         {
             if (firstRender)
             {
-                await JSRuntime.InvokeAsync<object>("Materialium.ripple.init", element);
+                await JSRuntime.InvokeAsync<object>("Materialium.ripple.init", new object[] { element });
             }
         }
     }
