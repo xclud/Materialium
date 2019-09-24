@@ -25,23 +25,23 @@ namespace Materialium
 
         [Parameter] public bool? Draggable { get; set; }
 
-        [Parameter] public EventCallback OnDrop { get; set; }
-        [Parameter] public EventCallback OnDragEnter { get; set; }
-        [Parameter] public EventCallback OnDragLeave { get; set; }
-        [Parameter] public EventCallback OnDragOver { get; set; }
-        [Parameter] public EventCallback OnDragStart { get; set; }
-        [Parameter] public EventCallback OnDragEnd { get; set; }
+        [Parameter] public EventCallback<Microsoft.AspNetCore.Components.Web.DragEventArgs> OnDrop { get; set; }
+        [Parameter] public EventCallback<Microsoft.AspNetCore.Components.Web.DragEventArgs> OnDragEnter { get; set; }
+        [Parameter] public EventCallback<Microsoft.AspNetCore.Components.Web.DragEventArgs> OnDragLeave { get; set; }
+        [Parameter] public EventCallback<Microsoft.AspNetCore.Components.Web.DragEventArgs> OnDragOver { get; set; }
+        [Parameter] public EventCallback<Microsoft.AspNetCore.Components.Web.DragEventArgs> OnDragStart { get; set; }
+        [Parameter] public EventCallback<Microsoft.AspNetCore.Components.Web.DragEventArgs> OnDragEnd { get; set; }
         [Parameter] public EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs> OnClick { get; set; }
         [Parameter]
         public EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs> OnMouseUp { get; set; }
         [Parameter]
         public EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs> OnMouseDown { get; set; }
         [Parameter]
-        public EventCallback OnKeyPress { get; set; }
+        public EventCallback<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs> OnKeyPress { get; set; }
         [Parameter]
-        public EventCallback OnKeyDown { get; set; }
+        public EventCallback<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs> OnKeyDown { get; set; }
         [Parameter]
-        public EventCallback OnKeyUp { get; set; }
+        public EventCallback<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs> OnKeyUp { get; set; }
 
         protected abstract IEnumerable<string> GetClasses();
 
